@@ -1,0 +1,261 @@
+body{
+	max-width: 500px;
+	margin: 0 auto;
+	background-color: #020202;
+	overflow-x: hidden;
+}
+
+.spacer1{
+	background: rgb(187,187,187);
+	background: linear-gradient(180deg, rgba(187,187,187,1) 0%, rgba(2,2,2,0.6923144257703081) 41%, rgba(2,2,2,1) 70%);
+	height: 300px;
+}
+
+.mengundang{
+	position: absolute;
+	bottom: 100px;
+	color: #FEFEFE;
+	opacity: 0.9;
+}
+
+.dear{
+	font-family: 'Allison';font-size: 40px;
+	font-weight: normal;
+	margin-bottom: 10px;
+}
+.kepada{
+	font-family: 'Montserrat Alternates';font-size: 32px;
+	font-weight: 800;
+	margin-bottom: 20px;
+}
+.pleasebe{
+	font-family: 'Montserrat Alternates';font-size: 13px;
+	font-weight: normal;
+	margin-bottom: 20px;
+}
+.surat{
+	font-family: 'Maven Pro';font-size: 20px;
+}
+.surat-section{
+	background-color: rgba(0, 0, 0, 0);
+	color: #FFF;
+	margin-top: -100px;
+	height: 300px;
+	transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.surat-section.hidden{
+	opacity: 0;
+}
+
+
+/*Parallax Home */
+
+.parallax-container {
+    position: relative;
+    height: 100vh;
+    max-height: 1000px;
+    overflow: hidden;
+	height: 100vh;
+}
+
+.layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-position: -20px -10px;
+    background-size: cover;
+    transition: transform 0.1s ease-out;
+}
+
+/* Contoh layer */
+.layer-1 {
+    background-image: url('../assets/img/backyw2.png');
+}
+
+.layer-2 {
+    background-image: url('../assets/img/ywtext.png');
+    background-size: 80%;
+    background-position: 55% 15%;
+    background-repeat: no-repeat;
+}
+
+.layer-3 {
+    background-image: url('../assets/img/yw_png.png');
+}
+
+/* transform on scroll */
+.spacer {
+    height: 100vh; /* Jarak untuk scroll awal */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #555;
+}
+
+.container-img-scroll {
+    height: 2000px; /* Membuat halaman lebih panjang untuk efek scroll */
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.scroll-image {
+    position: absolute;
+    left: 50%; /* Pastikan posisi awal sudah di tengah */
+    top: 0vh;
+    width: 100%;
+    max-width: 500px;
+    height: 50vh;
+    background-image: url('../assets/img/gallery/gal2.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+    transform: translate(-50%, 0%) scale(1); /* Pastikan tidak ada geseran aneh */
+    opacity: 0.2;
+}
+
+/* Efek pertama: muncul dengan fade-in */
+.scroll-image.visible {
+    opacity: 1;
+}
+
+/* Efek kedua: menjadi fixed ketika mencapai batas scroll */
+.scroll-image.groom {
+    position: fixed;
+    left: 50%; /* Tetap di tengah */
+    top: 28%; /* Tetap di atas layar */
+    transform:  scale(2.3); /* Pastikan scaling tetap smooth */
+    width: 100%;
+    max-width: 500px;
+    height: 50vh;
+}
+
+/* Efek ketiga: scaling saat scroll lebih lanjut */
+.scroll-image.bride {
+    position: fixed;
+    left: 50%; /* Tetap di tengah */
+    top: 28%; /* Tetap di atas layar */
+    width: 100%;
+    max-width: 500px;
+    height: 50vh;
+    transform: translate(-100%, 0%) scale(2.3); /* Pastikan tidak ada geseran aneh */
+}
+.scroll-image.bottom {
+    opacity: 0;
+}
+
+.cont-g-b{
+	display: none;
+}
+.cont-g-b p{
+	margin: 0;
+	padding: 0;
+	color: #FFF;
+}
+.cont-g-b.visible{
+	display: block;
+	position: fixed;
+	width: 100%;
+	left: 0;
+    top: 0; 
+    max-width: 500px;
+}
+
+.yudha-section{
+	opacity: 0;
+    transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.yudha-section.visible{
+	opacity: 1;
+	position: relative;
+	width: 100%;
+	left: 0;
+    top: 0; 
+    max-width: 500px;
+    height: 100vh;
+}
+
+.groom{
+	position: absolute;
+	font-family: 'Maven Pro';
+	font-size: 60px;
+	font-weight:bolder;
+	opacity: 0.3;
+	top: 100px;
+	left: 20%;
+}
+.yudha{
+	position: absolute;
+	font-family: 'Allison';
+	font-size: 98px;
+	top: 110px;
+	left: 10%;
+}
+.pratama{
+	position: absolute;
+	font-family: 'Allison';
+	font-size: 98px;
+	top: 180px;
+	left: 40%;
+}
+.putra{
+	position: absolute;
+	font-family: 'Maven Pro';
+	font-size: 16px;
+	bottom: 5%;
+	left: 10%;
+	font-weight: 500;
+}
+
+.widdy-section{
+	opacity: 0;
+	transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.widdy-section.visible{
+	opacity: 1;
+	position: fixed;
+	width: 100%;
+	left: 0;
+    top: 0; 
+    max-width: 500px;
+	position: relative;
+	height: 100vh;
+}
+
+.bride{
+	position: absolute;
+	font-family: 'Maven Pro';
+	font-size: 60px;
+	font-weight:bolder;
+	opacity: 0.3;
+	top: 100px;
+	left: 20%;
+}
+.widdy{
+	position: absolute;
+	font-family: 'Allison';
+	font-size: 98px;
+	top: 110px;
+	left: 10%;
+}
+.clhaudya{
+	position: absolute;
+	font-family: 'Allison';
+	font-size: 98px;
+	top: 180px;
+	left: 13%;
+}
+.putri{
+	position: absolute;
+	font-family: 'Maven Pro';
+	font-size: 16px;
+	bottom: 5%;
+	left: 10%;
+	font-weight: 500;
+}
