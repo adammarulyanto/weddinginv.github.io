@@ -188,11 +188,80 @@ Tangerang Selatan</p>
                 </div>
             </div>
         </div>
+        <!-- Footer-->
+        <div class="footer text-center">
+            <div class="glass-bg">
+                <div class="ty-heading">
+                    <h6 class="terima-title">Terima</h6>
+                    <h6 class="kasih-title">Kasih</h6>
+                </div>
+                <div class="row">
+                    <div class="col-6 notes-hadiah">
+                        <p>Terima kasih telah menambah semangat kegembiraan pernikahan kami dengan kehadiran dan hadiah indah Anda.</p>
+                    </div>
+                    <div class="col-6 icon-hadiah">
+                        <div class="circle-img" id="openModal">
+                            <img src="https://adammarulyanto.github.io/weddinginv.github.io/assets/img/gift.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                    <div id="hadiahModal" class="modal-hadiah">
+                        <div class="modal-hadiah-content">
+                            <span class="close-hadiah-btn">&times;</span>
+                            <div class="row detail-hadiah">
+                                <div class="col-12">
+                                    <div class="debit-card">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Bank Logo" class="bank-logo">
+                                        <div class="bank-name">BCA</div>
+                                        <div class="card-number">5435051267</div>
+                                        <div class="card-holder">ADAM MARULYANTO</div>
+                                        <!-- <div class="expiry">VALID THRU 12/28</div> -->
+                                    </div>
+
+                                </div>
+                                <hr>
+                                <div class="col-12 alamat-hadiah">
+                                    <h4>Alamat Rumah</h4>
+                                    <p>Jl. Rumahnya yudha atau rumah widdy, Ciputat Timur, Tangerang Selatan, 15416</p>
+                                    <a class="btn-buka-hadiah" href="https://maps.app.goo.gl/1ngW2q2tyRhXmPrC7">Buka Maps</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        // Ambil elemen modal
+                        const modal = document.getElementById("hadiahModal");
+                        const openModalBtn = document.getElementById("openModal");
+                        const closeModalBtn = document.querySelector(".close-hadiah-btn");
+
+                        // Buka modal saat tombol diklik
+                        openModalBtn.addEventListener("click", () => {
+                            modal.style.opacity = "1";
+                            modal.style.bottom = "-20vh";
+                        });
+
+                        // Tutup modal saat tombol close diklik
+                        closeModalBtn.addEventListener("click", () => {
+                            modal.style.opacity = "0";
+                            modal.style.bottom = "-100vh";
+                        });
+
+                        // Tutup modal saat klik di luar modal content
+                        window.addEventListener("click", (e) => {
+                            if (e.target === modal) {
+                                modal.style.opacity = "0";
+                                modal.style.bottom = "-100vh";
+                            }
+                        });
+
+                    </script>
         <!-- Portfolio-->
         <div class="container-komen">
             <div class="form-komentar">
-                <h6 class="form-title">Form</h6>
-                <h6 class="komentar-title">Komentar</h6>
+                <h6 class="form-title">Doa</h6>
+                <h6 class="komentar-title">Kehadiran</h6>
             </div>
             <form id="commentForm">
                 <input class="form-control mb-3" type="text" id="name" name="name" placeholder="Nama" required>
@@ -202,7 +271,7 @@ Tangerang Selatan</p>
                     <option value="Tidak Hadir">Tidak Hadir</option>
                     <option value="Belum Pasti">Belum Pasti</option>
                 </select>
-                <button class="btn btn-primary" type="submit">Kirim</button>
+                <button class="btn-kirim-ucapan" type="submit">Kirim</button>
             </form>
 
             <hr>
@@ -214,14 +283,16 @@ Tangerang Selatan</p>
         
         <!-- Footer-->
         <div class="footer text-center">
+            <div class="glass-bg">
                 <div class="pba col-12">
-                    <p>Please be a part of our happiest moment..</p>
+                    <p>Please be a part of our happiest moment.</p>
                 </div>
                 <div class="cont-berdua-footer">
                     <h5 class="siyudha-f">Yudha  Widdy</h5>
                     <span class="dan-icon-f">&</span>
                 </div>
-                <p class="text-muted small mb-0">Copyright &copy; Yudha <3 Widdy 2025</p>
+                <p>Copyright &copy; Yudha <3 Widdy 2025</p>
+            </div>
         </div>
         <!-- Scroll to Top Button-->
         <a class="scroll-to-top rounded" href="#page-top"><i class="fas fa-angle-up"></i></a>
