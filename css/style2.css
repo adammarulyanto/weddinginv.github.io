@@ -393,13 +393,17 @@ body{
 	right: 10%;
 }
 .putri{
-	position: absolute;
+	position: fixed;
 	font-family: 'Maven Pro';
 	font-size: 16px;
-	bottom: 5%;
-	left: 10%;
+	bottom: 50px;
+	left: 50px;
 	font-weight: 500;
 }
+.putri p{
+	max-width: 80%;
+}
+
 
 @media (min-width: 500px) {
 	.container-img-scroll{
