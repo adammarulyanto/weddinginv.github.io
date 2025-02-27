@@ -228,19 +228,20 @@
             });
         }
 
-        // Deteksi Gyroscope (Mobile)
-        window.addEventListener("deviceorientation", (event) => {
-            let x = event.gamma || 0;  // Kiri-kanan
-            let y = event.beta || 0;   // Atas-bawah
-            updateParallax(x, y);
+        window.addEventListener("devicemotion", (event) => {
+            if (event.accelerationIncludingGravity) {
+                let x = event.accelerationIncludingGravity.x || 0; // Kiri-kanan
+                let y = event.accelerationIncludingGravity.y || 0; // Atas-bawah
+                updateParallax(x, y);
+            }
         });
 
-        // Fallback untuk Mouse (Desktop)
-        window.addEventListener("mousemove", (event) => {
-            let x = (event.clientX - window.innerWidth / 2) / 25;
-            let y = (event.clientY - window.innerHeight / 2) / 25;
-            updateParallax(x, y);
-        });
+        // // Fallback untuk Mouse (Desktop)
+        // window.addEventListener("mousemove", (event) => {
+        //     let x = (event.clientX - window.innerWidth / 2) / 25;
+        //     let y = (event.clientY - window.innerHeight / 2) / 25;
+        //     updateParallax(x, y);
+        // });
 
     	</script>
     	<script>
