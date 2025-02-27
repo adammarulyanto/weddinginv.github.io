@@ -155,15 +155,25 @@ body{
 .map iframe{
 	z-index: 100;
 }
-
 .mengundang{
-	position: absolute;
+	position: fixed;
+	left: 50%;
+	transform: translateX(-50%);
+	margin: 0 auto;
+	text-align: center;
 	bottom: 50px;
 	color: #FEFEFE;
 	opacity: 0.9;
 	height: 200px;
 	z-index: 100;
 	pointer-events: auto;
+}
+.mengundang.scrolled {
+		position: absolute;
+		bottom: 50px;
+		opacity: 0.9;
+		height: 200px;
+		z-index: 100;
 }
 .wedding-of{
 	font-family: 'Allison';

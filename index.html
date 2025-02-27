@@ -134,22 +134,22 @@ Tangerang Selatan</p>
             </div>
             <div class="row gallery">
                 <div class="col-6">
-                    <img src="<?=base_url('assets/img/gallery/gal2.png')?>" class="img-thumbnail-yw" onclick="openModal(this)">
+                    <img src="https://adammarulyanto.github.io/weddinginv.github.io/assets/img/gallery/gal2.png" class="img-thumbnail-yw" onclick="openModal(this)">
                 </div>
                 <div class="col-6">
-                    <img src="<?=base_url('assets/img/gallery/gal4.png')?>" class="img-thumbnail-yw" onclick="openModal(this)">
+                    <img src="https://adammarulyanto.github.io/weddinginv.github.io/assets/img/gallery/gal4.png" class="img-thumbnail-yw" onclick="openModal(this)">
                 </div>
                 <div class="col-6">
-                    <img src="<?=base_url('assets/img/gallery/gal5.png')?>" class="img-thumbnail-yw" onclick="openModal(this)">
+                    <img src="https://adammarulyanto.github.io/weddinginv.github.io/assets/img/gallery/gal5.png" class="img-thumbnail-yw" onclick="openModal(this)">
                 </div>
                 <div class="col-6">
-                    <img src="<?=base_url('assets/img/gallery/gal6.png')?>" class="img-thumbnail-yw" onclick="openModal(this)">
+                    <img src="https://adammarulyanto.github.io/weddinginv.github.io/assets/img/gallery/gal6.png" class="img-thumbnail-yw" onclick="openModal(this)">
                 </div>
                 <div class="col-6">
-                    <img src="<?=base_url('assets/img/gallery/gal5.png')?>" class="img-thumbnail-yw" onclick="openModal(this)">
+                    <img src="https://adammarulyanto.github.io/weddinginv.github.io/assets/img/gallery/gal5.png" class="img-thumbnail-yw" onclick="openModal(this)">
                 </div>
                 <div class="col-6">
-                    <img src="<?=base_url('assets/img/gallery/gal6.png')?>" class="img-thumbnail-yw" onclick="openModal(this)">
+                    <img src="https://adammarulyanto.github.io/weddinginv.github.io/assets/img/gallery/gal6.png" class="img-thumbnail-yw" onclick="openModal(this)">
                 </div>
             </div>
         </div>
@@ -320,6 +320,7 @@ Tangerang Selatan</p>
         const cont = document.getElementById('cont-scroll');
         const yudha = document.getElementById('yudha');
         const widdy = document.getElementById('widdy');
+        const mengundang = document.getElementById('mengundang'); 
         const triggerHeight = window.innerHeight * 0.75;
         const scaleTrigger = window.innerHeight * 1.5;
 
@@ -329,7 +330,13 @@ Tangerang Selatan</p>
             let container = document.querySelector('.container-img-scroll');
             let containerHeight = container.offsetHeight; // Tinggi container
             let threshold = containerHeight * 0.59; // 12.5% dari tinggi container
+            let threshold2 = window.innerHeight * 0.01; // 10vh dalam pixel
 
+            if (scrollPosition > threshold2 ) {
+                mengundang.classList.add('scrolled');
+            }else{
+                mengundang.classList.remove('scrolled');
+            }
             // 1. Munculkan gambar saat mulai masuk viewport
             if (imagePosition < triggerHeight) {
                 image.classList.add('visible');
