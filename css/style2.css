@@ -1,6 +1,8 @@
 body{
+	max-width: 500px;
 	margin: 0 auto;
 	background-color: #020202;
+	overflow-x: hidden;
 	overflow: hidden;
 }
 @keyframes bounce {
@@ -186,6 +188,7 @@ body{
 /*Parallax Home */
 
 .parallax-container {
+    overflow: hidden;
     position: relative;
     height: 100vh;
     max-height: 1000px;
