@@ -39,6 +39,11 @@
             </ul>
         </nav> -->
         <!-- Header-->
+
+        <audio id="myAudio" autoplay muted>
+          <source src="<?= base_url('assets/lagu.mp3'); ?>" type="audio/mpeg">
+        </audio>
+        <div class="button-lagu" onclick="toggleAudio()"><img src="<?= base_url('assets/img/down-arrow.png');?>"></div>
         <header class="d-flex align-items-center parallax-container">
             <div class="mengundang container px-4 px-lg-5 text-center" style="z-index: 100;">
                 <h5 class="dear">Dear :</h5>
@@ -222,6 +227,13 @@ Tangerang Selatan</p>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+        <script>
+            window.onload = function() {
+            window.scrollTo(0, 0); // Mengembalikan ke posisi paling atas saat refresh
+        };
+        </script>
         <script>
         const layers = document.querySelectorAll('.layer');
 
@@ -301,6 +313,34 @@ Tangerang Selatan</p>
                 image.classList.remove('bottom');
             }
         });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let audio = document.getElementById("myAudio");
+            audio.muted = false; // Unmute setelah halaman dimuat
+            audio.play().catch(error => console.log("Autoplay gagal:", error));
+        });
+        
+        function toggleAudio() {
+            let audio = document.getElementById("myAudio");
+            let button = document.querySelector("button");
+            
+            if (audio.paused) {
+                audio.play();
+                button.textContent = "Play";
+                document.body.style.overflow = "auto"; // Mengaktifkan scroll
+            } else {
+                audio.pause();
+                button.textContent = "Play";
+                document.body.style.overflow = "auto"; // Mengaktifkan scroll
+            }
+
+            // Scroll ke bawah 100vh
+            window.scrollBy({
+                top: window.innerHeight*1.2, // Scroll ke bawah 100vh
+                behavior: "smooth" // Animasi scroll yang halus
+            });
+        }
     </script>
     </body>
 </html>
