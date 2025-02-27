@@ -16,6 +16,18 @@ body{
         transform: translateY(-5px);
     }
 }
+@keyframes anm-in {
+    0% {
+        opacity: 0;
+        transform: scale(2);
+    }
+    30% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.04);
+    }
+}
 .container-gallery{
 	background-color: #FEFEFE;
 	max-width: 500px;
@@ -29,6 +41,7 @@ body{
 	padding: 0;
 }
 .spacer1{
+	margin-top: -1px;
 	background: rgb(187,187,187);
 	background: linear-gradient(180deg, rgba(187,187,187,1) 0%, rgba(2,2,2,0.6923144257703081) 41%, rgba(2,2,2,1) 70%);
 	height: 300px;
@@ -78,19 +91,45 @@ body{
 .gallery-title{
 	position: absolute;
 	font-family: 'Maven Pro';
-	font-size: 50pt;
+	font-size: 40pt;
 	font-weight:bolder;
 	opacity: 0.3;
-	left: 0;
-	top: 5px;
+	left: 30px;
+	top: 15px;
 }
 .fkami-title{
 	position: absolute;
-	font-family: 'Maven Pro';
-	font-size: 35pt;
+	font-family: 'Allison';
+	font-size: 40pt;
 	font-weight:bolder;
-	right: 0px;
-	top: 40px;
+	color: #020202;
+	left: 0px;
+	top: 30px;
+}
+.form-komentar{
+	position: relative;
+	width: 100%;
+	padding: 0;
+	height: 150px;
+	margin: 0 auto;
+}
+.form-title{
+	position: absolute;
+	font-family: 'Maven Pro';
+	font-size: 40pt;
+	font-weight:bolder;
+	opacity: 0.3;
+	left: 30px;
+	top: 15px;
+}
+.komentar-title{
+	position: absolute;
+	font-family: 'Allison';
+	font-size: 40pt;
+	font-weight:bolder;
+	color: #020202;
+	left: 0px;
+	top: 30px;
 }
 .btn-buka-sayang{
 	border: 1px rgba(0, 0, 0, 1.0) solid ;
@@ -175,6 +214,15 @@ body{
 		height: 200px;
 		z-index: 100;
 }
+@media screen and (min-height: 1000px) {
+    .mengundang {
+		position: absolute;
+		bottom: 50px;
+		opacity: 0.9;
+		height: 200px;
+		z-index: 100;
+	}
+}
 .wedding-of{
 	font-family: 'Allison';
 	position: relative;
@@ -216,6 +264,31 @@ body{
 	position: absolute;
 	right: 0;
 	top: 180px;
+}
+.cont-berdua-footer{
+	width: 100%;
+	color: #FEFEFE;
+	position: relative;
+	font-family: 'Allison';
+	text-align: center;
+}
+.pba{
+	color: #FEFEFE;
+	margin: 10px 0 0 0;
+}
+.siyudha-f{
+	font-size: 40pt;
+	font-weight: normal;
+	left: 0;
+}
+.dan-icon-f{
+	font-size: 80pt;
+	font-weight: normal;
+	position: absolute;
+	left: 50%;
+	top: -30px;
+	transform: translateX(-50%);
+	opacity: 0.2;
 }
 .dear{
 	font-family: 'Allison';font-size: 40px;
@@ -265,12 +338,13 @@ body{
     height: 100%;
     background-position: -20px -10px;
     background-size: cover;
+    transform: scale(1.04);
 }
 
 /* Contoh layer */
 .layer-1 {
     background-image: url('../assets/img/backyw2.png');
-    transform: scale(1.2);
+	animation: anm-in 1.5s ;
     transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
                 transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
@@ -280,16 +354,18 @@ body{
     background-size: 80%;
     background-position: 55% 15%;
     background-repeat: no-repeat;
-    transform: scale(1.2);
+	z-index: 1;       
+	animation: anm-in 1s ;
     transition: opacity 3s cubic-bezier(0.25, 1, 0.5, 1), 
                 transform 3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .layer-3 {
     background-image: url('../assets/img/yw_png.png');
-    transform: scale(1.2);
+	animation: anm-in 1.5s ;
     transition: opacity 4s cubic-bezier(0.25, 1, 0.5, 1), 
                 transform 4s cubic-bezier(0.25, 1, 0.5, 1);
+	z-index: 2;                
 }
 
 /* transform on scroll */
@@ -478,4 +554,42 @@ body{
 }
 .putri p{
 	max-width: 80%;
+}
+.container-komen{
+	background-color: #FEFEFE;
+	margin: 0 auto;
+	max-width: 500px;
+	padding: 50px 50px;
+}
+.comment {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-top: 10px;
+    background: #f9f9f9;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.pagination {
+    margin-top: 20px;
+}
+
+.pagination a {
+    padding: 8px 12px;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    margin: 0 5px;
+    border-radius: 5px;
+    color: #333;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.pagination a.active {
+    background: #007bff;
+    color: white;
+    border: none;
+}
+.footer{
+	padding: 100px 0;
 }

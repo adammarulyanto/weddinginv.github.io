@@ -44,8 +44,8 @@
         <audio id="myAudio" autoplay muted>
           <source src="https://adammarulyanto.github.io/weddinginv.github.io/assets/lagu.mp3" type="audio/mpeg">
         </audio>
-        <header class="d-flex align-items-center parallax-container">
-            <div class="mengundang container px-4 px-lg-5 text-center" >
+        <header class="parallax-container">
+            <div class="mengundang container px-4 px-lg-5 text-center" id="mengundang">
                 <h5 class="dear">Dear :</h5>
                 <h5 class="kepada">Adam & Partner</h5>
                 <h5 class="pleasebe">Please be a part of our happiest moment</h5>
@@ -129,7 +129,7 @@ Tangerang Selatan</p>
         <!-- Callout-->
         <div class="container-gallery">
             <div class="gallery-heading">
-                <h6 class="gallery-title">Gallery</h6>
+                <h6 class="gallery-title">Galeri</h6>
                 <h6 class="fkami-title">Foto Kami</h6>
             </div>
             <div class="row gallery">
@@ -189,91 +189,40 @@ Tangerang Selatan</p>
             </div>
         </div>
         <!-- Portfolio-->
-        <section class="content-section" id="portfolio">
-            <div class="container px-4 px-lg-5">
-                <div class="content-section-heading text-center">
-                    <h3 class="text-secondary mb-0">Portfolio</h3>
-                    <h2 class="mb-5">Recent Projects</h2>
-                </div>
-                <div class="row gx-0">
-                    <div class="col-lg-6">
-                        <a class="portfolio-item" href="#!">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <div class="h2">Stationary</div>
-                                    <p class="mb-0">A yellow pencil with envelopes on a clean, blue backdrop!</p>
-                                </div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio-1.jpg" alt="..." />
-                        </a>
-                    </div>
-                    <div class="col-lg-6">
-                        <a class="portfolio-item" href="#!">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <div class="h2">Ice Cream</div>
-                                    <p class="mb-0">A dark blue background with a colored pencil, a clip, and a tiny ice cream cone!</p>
-                                </div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio-2.jpg" alt="..." />
-                        </a>
-                    </div>
-                    <div class="col-lg-6">
-                        <a class="portfolio-item" href="#!">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <div class="h2">Strawberries</div>
-                                    <p class="mb-0">Strawberries are such a tasty snack, especially with a little sugar on top!</p>
-                                </div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio-3.jpg" alt="..." />
-                        </a>
-                    </div>
-                    <div class="col-lg-6">
-                        <a class="portfolio-item" href="#!">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <div class="h2">Workspace</div>
-                                    <p class="mb-0">A yellow workspace with some scissors, pencils, and other objects.</p>
-                                </div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio-4.jpg" alt="..." />
-                        </a>
-                    </div>
-                </div>
+        <div class="container-komen">
+            <div class="form-komentar">
+                <h6 class="form-title">Form</h6>
+                <h6 class="komentar-title">Komentar</h6>
             </div>
-        </section>
-        <!-- Call to Action-->
-        <section class="content-section bg-primary text-white">
-            <div class="container px-4 px-lg-5 text-center">
-                <h2 class="mb-4">The buttons below are impossible to resist...</h2>
-                <a class="btn btn-xl btn-light me-4" href="#!">Click Me!</a>
-                <a class="btn btn-xl btn-dark" href="#!">Look at Me!</a>
-            </div>
-        </section>
-        <!-- Map-->
-        <div class="map" id="contact">
-            <iframe src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
-            <br />
-            <small><a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a></small>
+            <form id="commentForm">
+                <input class="form-control mb-3" type="text" id="name" name="name" placeholder="Nama" required>
+                <textarea class="form-control mb-3"  id="message" name="message" placeholder="Ucapan" required></textarea>
+                <select class="form-control mb-3" id="attendance" name="attendance">
+                    <option value="Hadir">Hadir</option>
+                    <option value="Tidak Hadir">Tidak Hadir</option>
+                    <option value="Belum Pasti">Belum Pasti</option>
+                </select>
+                <button class="btn btn-primary" type="submit">Kirim</button>
+            </form>
+
+            <hr>
+            <div id="commentSection"></div>
+
+            <!-- Pagination -->
+            <div class="pagination" id="pagination"></div>
         </div>
+        
         <!-- Footer-->
-        <footer class="footer text-center">
-            <div class="container px-4 px-lg-5">
-                <ul class="list-inline mb-5">
-                    <li class="list-inline-item">
-                        <a class="social-link rounded-circle text-white mr-3" href="#!"><i class="icon-social-facebook"></i></a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="social-link rounded-circle text-white mr-3" href="#!"><i class="icon-social-twitter"></i></a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="social-link rounded-circle text-white" href="#!"><i class="icon-social-github"></i></a>
-                    </li>
-                </ul>
-                <p class="text-muted small mb-0">Copyright &copy; Your Website 2023</p>
-            </div>
-        </footer>
+        <div class="footer text-center">
+                <div class="pba col-12">
+                    <p>Please be a part of our happiest moment.</p>
+                </div>
+                <div class="cont-berdua-footer">
+                    <h5 class="siyudha-f">Yudha  Widdy</h5>
+                    <span class="dan-icon-f">&</span>
+                </div>
+                <p class="text-muted small mb-0">Copyright &copy; Yudha <3 Widdy 2025</p>
+        </div>
         <!-- Scroll to Top Button-->
         <a class="scroll-to-top rounded" href="#page-top"><i class="fas fa-angle-up"></i></a>
         <!-- Bootstrap core JS-->
@@ -286,7 +235,7 @@ Tangerang Selatan</p>
             window.scrollTo(0, 0); // Mengembalikan ke posisi paling atas saat refresh
         };
         </script>
-        <script>
+        <!-- <script>
         const layers = document.querySelectorAll('.layer');
 
         function updateParallax(x, y) {
@@ -312,7 +261,7 @@ Tangerang Selatan</p>
             updateParallax(x, y);
         });
 
-        </script>
+        </script> -->
         <script>
         const image = document.getElementById('targetImage');
         const surat = document.getElementById('about');
@@ -330,9 +279,8 @@ Tangerang Selatan</p>
             let container = document.querySelector('.container-img-scroll');
             let containerHeight = container.offsetHeight; // Tinggi container
             let threshold = containerHeight * 0.59; // 12.5% dari tinggi container
-            let threshold2 = window.innerHeight * 0.01; // 10vh dalam pixel
 
-            if (scrollPosition > threshold2 ) {
+            if (scrollPosition > 1) {
                 mengundang.classList.add('scrolled');
             }else{
                 mengundang.classList.remove('scrolled');
@@ -405,6 +353,84 @@ Tangerang Selatan</p>
                 behavior: "smooth" // Animasi scroll yang halus
             });
         }
+    </script>
+
+    <script>
+        let comments = [
+            { name: "Budi", message: "Selamat! Semoga bahagia selalu!", attendance: "Hadir" },
+            { name: "Ani", message: "Maaf, aku nggak bisa datang :(", attendance: "Tidak Hadir" },
+            { name: "Dewi", message: "Selamat menempuh hidup baru!", attendance: "Hadir" },
+            { name: "Joko", message: "InsyaAllah saya hadir!", attendance: "Hadir" },
+            { name: "Siti", message: "Semoga menjadi keluarga sakinah!", attendance: "Belum Pasti" },
+            { name: "Rizky", message: "Barakallah! Sukses selalu!", attendance: "Hadir" },
+            { name: "Eka", message: "Maaf, nggak bisa datang :(", attendance: "Tidak Hadir" },
+            { name: "Tono", message: "Semoga pernikahan kalian penuh berkah!", attendance: "Hadir" },
+            { name: "Lisa", message: "Saya akan mencoba hadir!", attendance: "Belum Pasti" },
+            { name: "Andi", message: "Senang banget mendengar kabar ini!", attendance: "Hadir" }
+        ];
+
+        let commentsPerPage = 3;
+        let currentPage = 1;
+
+        function displayComments() {
+            let start = (currentPage - 1) * commentsPerPage;
+            let end = start + commentsPerPage;
+            let displayedComments = comments.slice(start, end);
+
+            let commentSection = document.getElementById("commentSection");
+            commentSection.innerHTML = "";
+
+            displayedComments.forEach(comment => {
+                let div = document.createElement("div");
+                div.classList.add("comment");
+                div.innerHTML = `<strong>${comment.name}</strong> (${comment.attendance})
+                                 <p>${comment.message}</p>`;
+                commentSection.appendChild(div);
+            });
+
+            updatePagination();
+        }
+
+        function updatePagination() {
+            let totalPages = Math.ceil(comments.length / commentsPerPage);
+            let paginationDiv = document.getElementById("pagination");
+            paginationDiv.innerHTML = "";
+
+            for (let i = 1; i <= totalPages; i++) {
+                let pageLink = document.createElement("a");
+                pageLink.innerText = i;
+                pageLink.href = "#";
+                pageLink.classList.add("page-link");
+                if (currentPage === i) {
+                    pageLink.classList.add("active");
+                }
+
+                pageLink.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    currentPage = i;
+                    displayComments();
+                });
+
+                paginationDiv.appendChild(pageLink);
+            }
+        }
+
+        document.getElementById("commentForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let name = document.getElementById("name").value;
+            let message = document.getElementById("message").value;
+            let attendance = document.getElementById("attendance").value;
+
+            if (name && message) {
+                comments.unshift({ name, message, attendance });
+                document.getElementById("commentForm").reset();
+                currentPage = 1;
+                displayComments();
+            }
+        });
+
+        displayComments();
     </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
