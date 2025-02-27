@@ -16,7 +16,18 @@ body{
         transform: translateY(-5px);
     }
 }
-
+.container-gallery{
+	background-color: #FEFEFE;
+	max-width: 500px;
+	overflow: hidden;
+}
+.img-thumbnail-yw{
+	width: 100%;
+}
+.gallery .col-6{
+	margin: 0;
+	padding: 0;
+}
 .spacer1{
 	background: rgb(187,187,187);
 	background: linear-gradient(180deg, rgba(187,187,187,1) 0%, rgba(2,2,2,0.6923144257703081) 41%, rgba(2,2,2,1) 70%);
@@ -57,6 +68,43 @@ body{
 	opacity: 0.3;
 	left: 25%;
 	top: 5px;
+}
+.gallery-heading{
+	position: relative;
+	width: 80%;
+	height: 200px;
+	margin: 0 auto;
+}
+.gallery-title{
+	position: absolute;
+	font-family: 'Maven Pro';
+	font-size: 50pt;
+	font-weight:bolder;
+	opacity: 0.3;
+	left: 0;
+	top: 5px;
+}
+.fkami-title{
+	position: absolute;
+	font-family: 'Maven Pro';
+	font-size: 35pt;
+	font-weight:bolder;
+	right: 0px;
+	top: 40px;
+}
+.btn-buka-sayang{
+	border: 1px rgba(0, 0, 0, 1.0) solid ;
+	border-radius: 50px;
+	text-decoration: none;
+	padding: 10px 20px;
+	color: #020202;
+}
+.btn-buka-sayang:hover{
+	border: 1px rgba(0, 0, 0, 1.0) solid ;
+	text-decoration: none;
+	padding: 10px 20px;
+	background-color: #020202;
+	color: #FEFEFE;
 }
 .akad{
 	padding: 30px;
@@ -207,12 +255,14 @@ body{
     height: 100%;
     background-position: -20px -10px;
     background-size: cover;
-    transition: transform 0.1s ease-out;
 }
 
 /* Contoh layer */
 .layer-1 {
     background-image: url('../assets/img/backyw2.png');
+    transform: scale(1.2);
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .layer-2 {
@@ -220,10 +270,16 @@ body{
     background-size: 80%;
     background-position: 55% 15%;
     background-repeat: no-repeat;
+    transform: scale(1.2);
+    transition: opacity 3s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .layer-3 {
     background-image: url('../assets/img/yw_png.png');
+    transform: scale(1.2);
+    transition: opacity 4s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 /* transform on scroll */
@@ -238,11 +294,15 @@ body{
 }
 
 .container-img-scroll {
+	display: block;
     height: 2000px; /* Membuat halaman lebih panjang untuk efek scroll */
     position: relative;
     width: 100%;
     background-color: #020202;
     z-index: 100;
+}
+.container-img-scroll.hilang{
+	z-index: -1;
 }
 
 .scroll-image {
@@ -408,16 +468,4 @@ body{
 }
 .putri p{
 	max-width: 80%;
-}
-
-
-@media (min-width: 500px) {
-	.container-img-scroll{
-		padding: 0;
-		margin: 0;
-	}
-	.cont-groom-bride{
-		position: absolute;
-		left: 50%;
-	}
 }
