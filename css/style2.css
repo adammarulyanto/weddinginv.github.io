@@ -136,6 +136,7 @@ body{
 .modal-hadiah-content {
     width: 90%;
     height: 80vh;
+    max-width: 450px;
     background: white;
     border-radius: 10px 10px 0 0 ;
     position: relative;
@@ -498,12 +499,14 @@ body{
 	opacity: 0.2;
 }
 .dear{
-	font-family: 'Allison';font-size: 40px;
+	font-family: 'Allison';
+	font-size: 40px;
 	font-weight: normal;
 	margin-bottom: 10px;
 }
 .kepada{
-	font-family: 'Montserrat Alternates';font-size: 32px;
+	font-family: 'Montserrat Alternates';
+	font-size: 25px;
 	font-weight: 800;
 	margin-bottom: 20px;
 }
@@ -768,6 +771,7 @@ body{
 	max-width: 500px;
 	padding: 50px 50px;
 }
+
 .comment {
     border: 1px solid #ddd;
     padding: 10px;
@@ -785,17 +789,20 @@ body{
     padding: 8px 12px;
     text-decoration: none;
     border: 1px solid #ccc;
-    margin: 0 5px;
     border-radius: 5px;
     color: #333;
     cursor: pointer;
     display: inline-block;
 }
 
-.pagination a.active {
-    background: #007bff;
-    color: white;
-    border: none;
+.pagination li{
+	margin: 5px;
+    border-radius: 5px;
+}
+
+.active {
+	background-color: #020202;
+	color: #FEFEFE;
 }
 .footer{
 	background-image: url('../assets/img/gallery/gal6.png');

@@ -20,10 +20,10 @@
         <link href="css/styles.css" rel="stylesheet"/>
         <link href="css/style2.css" rel="stylesheet"/>
         <link href='https://fonts.googleapis.com/css?family=Allison' rel='stylesheet'>
-        <link href='https://fonts.googleapis.com/css?family=Montserrat Alternates' rel='stylesheet'>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400..900&display=swap" rel="stylesheet">
+		<link href='https://fonts.googleapis.com/css?family=Montserrat Alternates' rel='stylesheet'>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400..900&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     </head>
     <body id="page-top">
@@ -47,12 +47,12 @@
         <header class="parallax-container">
             <div class="mengundang container px-4 px-lg-5 text-center" id="mengundang">
                 <h5 class="dear">Dear :</h5>
-                <h5 class="kepada">Adam & Partner</h5>
+                <h5 class="kepada"><?= htmlspecialchars($data['nama']); ?></h5>
                 <h5 class="pleasebe">Please be a part of our happiest moment</h5>
                 <div class="button-lagu" onclick="toggleAudio()"><img src="<?= base_url('assets/img/down-arrow.png');?>"></div>
             </div>
-            <div class="layer layer-1" data-speed="3"></div>
-            <div class="layer layer-2" data-speed="4">
+        	<div class="layer layer-1" data-speed="3"></div>
+	        <div class="layer layer-2" data-speed="4">
                 <div class="wedding-of container px-4 px-lg-5 text-center" style="z-index: 100;">
                     <h5 class="tweddingof">The Wedding of</h5>
                     <div class="cont-berdua">
@@ -62,7 +62,7 @@
                     </div>
                 </div>  
             </div>
-            <div class="layer layer-3" data-speed="6"></div>
+	        <div class="layer layer-3" data-speed="6"></div>
         </header>
         <div class="spacer1">
         </div>
@@ -79,22 +79,22 @@
             </div>
         </section>
         <div class="container-img-scroll" id="cont-scroll">
-            <div class="scroll-image" id="targetImage"></div>
-            <div class="cont-g-b" id="cont-groom-bride">
-                <div class="yudha-section" id="yudha">
-                    <div class="yudha"><p>Yudha</p></div>
-                    <div class="pratama"><p>Pratama</p></div>
-                    <div class="putra" id="putra"><p>Putra Pertama dari Bapaknya Yudha dan Ibunya Yudha</p></div>
-                    <div class="groom" id="groom"><p>Groom</p></div>
-                </div>
-                <div class="widdy-section" id="widdy">
-                    <div class="widdy" id="w_nama"><p>Widdy</p></div>
-                    <div class="clhaudya" id="w_nama"><p>Clhaudya R.</p></div>
-                    <div class="putri" id="putri"><p>Putri Kedua dari Bapaknya Widdy dan Ibunya Widdy</p></div>
-                    <div class="bride" id="bride"><p>Bride</p></div>
-                </div>
-            </div>
-        </div>
+        	<div class="scroll-image" id="targetImage"></div>
+        	<div class="cont-g-b" id="cont-groom-bride">
+        		<div class="yudha-section" id="yudha">
+		        	<div class="yudha"><p>Yudha</p></div>
+		        	<div class="pratama"><p>Pratama</p></div>
+		        	<div class="putra" id="putra"><p>Putra Pertama dari Bapaknya Yudha dan Ibunya Yudha</p></div>
+		        	<div class="groom" id="groom"><p>Groom</p></div>
+        		</div>
+	        	<div class="widdy-section" id="widdy">
+		        	<div class="widdy" id="w_nama"><p>Widdy</p></div>
+		        	<div class="clhaudya" id="w_nama"><p>Clhaudya R.</p></div>
+		        	<div class="putri" id="putri"><p>Putri Kedua dari Bapaknya Widdy dan Ibunya Widdy</p></div>
+	        		<div class="bride" id="bride"><p>Bride</p></div>
+	        	</div>
+	        </div>
+    	</div>
         <div class="spacer2">
         </div>
         <!-- Services-->
@@ -263,22 +263,51 @@ Tangerang Selatan</p>
                 <h6 class="form-title">Doa</h6>
                 <h6 class="komentar-title">Kehadiran</h6>
             </div>
-            <form id="commentForm">
+            <form id="commentForm" action="<?= base_url('Home/submit_comment'); ?>" method="post">
                 <input class="form-control mb-3" type="text" id="name" name="name" placeholder="Nama" required>
-                <textarea class="form-control mb-3"  id="message" name="message" placeholder="Ucapan" required></textarea>
-                <select class="form-control mb-3" id="attendance" name="attendance">
+                <textarea class="form-control mb-3" id="message" name="message" placeholder="Ucapan" required></textarea>
+                <select class="form-control mb-3" id="attendance" name="attendance" required>
                     <option value="Hadir">Hadir</option>
                     <option value="Tidak Hadir">Tidak Hadir</option>
                     <option value="Belum Pasti">Belum Pasti</option>
                 </select>
-                <button class="btn-kirim-ucapan" type="submit">Kirim</button>
+                <button class="btn-kirim-ucapan" type="submit" id="submitComment">Kirim</button>
             </form>
 
             <hr>
-            <div id="commentSection"></div>
+            <div id="commentSection">
+            </div>
 
             <!-- Pagination -->
             <div class="pagination" id="pagination"></div>
+
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script>
+                $(document).ready(function () {
+                    $('#commentForm').submit(function (event) {
+                        event.preventDefault(); // Mencegah reload halaman
+
+                        $.ajax({
+                            url: $(this).attr('action'),
+                            type: 'POST',
+                            data: $(this).serialize(),
+                            dataType: 'json',
+                            success: function (response) {
+                                if (response.status === 'success') {
+                                    $('#commentResponse').html('<p style="color: green;">' + response.message + '</p>');
+                                    $('#commentForm')[0].reset(); // Reset form setelah sukses
+                                } else {
+                                    $('#commentResponse').html('<p style="color: red;">' + response.message + '</p>');
+                                }
+                            },
+                            error: function () {
+                                $('#commentResponse').html('<p style="color: red;">Terjadi kesalahan, coba lagi.</p>');
+                            }
+                        });
+                    });
+                });
+            </script>
+
         </div>
         
         <!-- Footer-->
@@ -332,8 +361,8 @@ Tangerang Selatan</p>
             updateParallax(x, y);
         });
 
-        </script> -->
-        <script>
+    	</script> -->
+    	<script>
         const image = document.getElementById('targetImage');
         const surat = document.getElementById('about');
         const groom_bride = document.getElementById('cont-groom-bride');
@@ -347,8 +376,8 @@ Tangerang Selatan</p>
         window.addEventListener('scroll', function() {
             let scrollPosition = window.scrollY;
             let imagePosition = image.getBoundingClientRect().top;
-            let container = document.querySelector('.container-img-scroll');
-            let containerHeight = container.offsetHeight; // Tinggi container
+        	let container = document.querySelector('.container-img-scroll');
+        	let containerHeight = container.offsetHeight; // Tinggi container
             let threshold = containerHeight * 0.59; // 12.5% dari tinggi container
 
             if (scrollPosition > 1) {
@@ -426,7 +455,7 @@ Tangerang Selatan</p>
         }
     </script>
 
-    <script>
+    <!-- <script>
         let comments = [
             { name: "Budi", message: "Selamat! Semoga bahagia selalu!", attendance: "Hadir" },
             { name: "Ani", message: "Maaf, aku nggak bisa datang :(", attendance: "Tidak Hadir" },
@@ -502,6 +531,59 @@ Tangerang Selatan</p>
         });
 
         displayComments();
+    </script> -->
+    <script>
+        function loadComments(page = 1) {
+            $.ajax({
+                url: "<?= base_url('Home/get_comments/'); ?>" + page,  // Pastikan hanya satu 'get_comments/'
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+                    let commentSection = document.getElementById("commentSection");
+                    let paginationSection = document.getElementById("pagination");
+
+                    if (commentSection) {
+                        commentSection.innerHTML = "";
+                        data.comments.forEach(comment => {
+                            let div = document.createElement("div");
+                            div.classList.add("comment");
+                            div.innerHTML = `<strong>${comment.name}</strong> (${comment.attendance})
+                                             <p>${comment.message}</p>
+                                             <small>${comment.created_at}</small>`;
+                            commentSection.appendChild(div);
+                        });
+                    }
+
+                    if (paginationSection) {
+                        paginationSection.innerHTML = data.pagination;
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error("Error:", error); // Debugging
+                    console.error("Response:", xhr.responseText); // Debugging
+                    let commentSection = document.getElementById("commentSection");
+                    if (commentSection) {
+                        commentSection.innerHTML = "<p>Gagal memuat komentar.</p>";
+                    }
+                }
+            });
+        }
+
+
+        // Event listener untuk pagination klik
+        $(document).on("click", ".pagination a", function (e) {
+            e.preventDefault();
+            let page = $(this).attr("href").split("/").pop();
+            loadComments(page);
+        });
+
+        $(document).ready(function () {
+            loadComments();
+            
+            $("#commentForm").submit(function () {
+                setTimeout(loadComments, 1000); // Refresh komentar setelah submit
+            });
+        });
     </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
