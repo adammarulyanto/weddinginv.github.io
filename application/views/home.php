@@ -75,6 +75,9 @@
                             “Dan segala sesuatu Kami ciptakan berpasang-pasangan agar kamu mengingat (kebesaran Allah)”<br>QS. Az-Zariyat:49
                         </p>
                     </div>
+                    <!-- <div class="col-12">
+                        <div class="counter" style="font-size: 10px;">Scroll Pos: <span id="scroll-pos">0</span> | Threshold: <span id="threshold-value">0</span> | Container Height: <span id="containerHeight-value">0</span> | Device Height: <span id="tinggiLayar-value">0</span> | Nilai Variabel: <span id="variable-value">0</span></div>
+                    </div> -->
                 </div>
             </div>
         </section>
@@ -335,6 +338,13 @@ Tangerang Selatan</p>
             window.scrollTo(0, 0); // Mengembalikan ke posisi paling atas saat refresh
         };
         </script>
+        <script>
+            
+
+            // Update saat load dan saat resize
+            window.addEventListener('resize', updateVariable);
+            updateVariable(); // Jalankan saat pertama kali load
+        </script>
         <!-- <script>
         const layers = document.querySelectorAll('.layer');
 
@@ -373,12 +383,45 @@ Tangerang Selatan</p>
         const triggerHeight = window.innerHeight * 0.75;
         const scaleTrigger = window.innerHeight * 1.5;
 
+        function scaleTreshold() {
+            let screenHeight = window.innerHeight; // Ambil tinggi layar
+            let minHeight = 660;
+            let maxHeight = 932;
+            let minValue = 1.5;
+            let maxValue = 1.32;
+            let variableValue;
+
+            if (screenHeight <= minHeight) {
+                variableValue = minValue;
+            } else if (screenHeight >= maxHeight) {
+                variableValue = maxValue;
+            } else {
+                // Interpolasi Linear
+                variableValue = minValue + ((screenHeight - minHeight) / (maxHeight - minHeight)) * (maxValue - minValue);
+            }
+
+            return variableValue; // Mengembalikan nilai, bukan menulis ke HTML
+        }
+
         window.addEventListener('scroll', function() {
             let scrollPosition = window.scrollY;
             let imagePosition = image.getBoundingClientRect().top;
         	let container = document.querySelector('.container-img-scroll');
         	let containerHeight = container.offsetHeight; // Tinggi container
-            let threshold = containerHeight * 0.59; // 12.5% dari tinggi container
+            let tinggiLayar= window.innerHeight
+            let threshold = tinggiLayar * scaleTreshold();// 12.5% dari tinggi container
+
+            // document.getElementById('threshold-value').textContent = threshold.toFixed(2); // Tampilkan threshold awal
+            // document.getElementById('containerHeight-value').textContent = containerHeight.toFixed(2); // Tampilkan threshold awal
+            // document.getElementById('tinggiLayar-value').textContent = tinggiLayar.toFixed(2); // Tampilkan threshold awal
+            // document.getElementById('variable-value').textContent = threshold.toFixed(2);
+
+            // window.addEventListener('scroll', function() {
+            //     let scrollPosition = window.scrollY; // Ambil posisi scroll
+            //     document.getElementById('scroll-pos').textContent = scrollPosition.toFixed(2); // Update posisi scroll
+            // });
+
+            const contScroll = document.getElementById('cont-scroll');
 
             if (scrollPosition > 1) {
                 mengundang.classList.add('scrolled');
@@ -405,7 +448,7 @@ Tangerang Selatan</p>
                 yudha.classList.remove('visible');
             }
             // 3. Jika terus scroll lebih jauh, gambar membesar (scale-up)
-            if (scrollPosition >= threshold*1.9) {
+            if (scrollPosition >= threshold*1.5) {
                 image.classList.add('bride');
                 widdy.classList.add('visible');
                 yudha.classList.remove('visible');
@@ -414,14 +457,14 @@ Tangerang Selatan</p>
                 image.classList.remove('bottom');
                 widdy.classList.remove('visible');
             }
-            if (scrollPosition > threshold*2.9) {
+            if (scrollPosition > threshold*2) {
                 image.classList.add('bottom');
                 groom_bride.classList.remove('visible');
                 cont.classList.remove('hilang');
             }else{
                 image.classList.remove('bottom');
             }
-            if (scrollPosition > threshold*3.1) {
+            if (scrollPosition > threshold*2.1) {
                 cont.classList.add('hilang');
             }else{
                 cont.classList.remove('hilang');
@@ -449,7 +492,7 @@ Tangerang Selatan</p>
 
             // Scroll ke bawah 100vh
             window.scrollBy({
-                top: window.innerHeight*1.2, // Scroll ke bawah 100vh
+                top: window.innerHeight*scaleTreshold()*0.9, // Scroll ke bawah 100vh
                 behavior: "smooth" // Animasi scroll yang halus
             });
         }

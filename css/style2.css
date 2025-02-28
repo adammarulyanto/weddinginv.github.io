@@ -218,7 +218,7 @@ body{
 .spacer2{
 	background: rgb(254,254,254);
 	background: linear-gradient(0deg, rgba(254,254,254,1) 0%, rgba(2,2,2,1) 74%);
-	height: 300px;
+	height: 400px;
 	margin-bottom: -5px;
 }
 .agenda{
@@ -591,7 +591,7 @@ body{
 
 .container-img-scroll {
 	display: block;
-    height: 2000px; /* Membuat halaman lebih panjang untuk efek scroll */
+    height: 800px; /* Membuat halaman lebih panjang untuk efek scroll */
     position: relative;
     width: 100%;
     background-color: #020202;
