@@ -42,14 +42,14 @@
         <!-- Header-->
 
         <audio id="myAudio" autoplay muted>
-          <source src="https://adammarulyanto.github.io/weddinginv.github.io/assets/lagu.mp3" type="audio/mpeg">
+          <source src="<?= base_url('assets/lagu.mp3'); ?>" type="audio/mpeg">
         </audio>
         <header class="parallax-container">
             <div class="mengundang container px-4 px-lg-5 text-center" id="mengundang">
                 <h5 class="dear">Dear :</h5>
                 <h5 class="kepada">Adam & Partner</h5>
                 <h5 class="pleasebe">Please be a part of our happiest moment</h5>
-                <div class="button-lagu" onclick="toggleAudio()"><img src="https://adammarulyanto.github.io/weddinginv.github.io/assets/img/down-arrow.png"></div>
+                <div class="button-lagu" onclick="toggleAudio()"><img src="<?= base_url('assets/img/down-arrow.png');?>"></div>
             </div>
             <div class="layer layer-1" data-speed="3"></div>
             <div class="layer layer-2" data-speed="4">
@@ -134,22 +134,22 @@ Tangerang Selatan</p>
             </div>
             <div class="row gallery">
                 <div class="col-6">
-                    <img src="https://adammarulyanto.github.io/weddinginv.github.io/assets/img/gallery/gal2.png" class="img-thumbnail-yw" onclick="openModal(this)">
+                    <img src="<?=base_url('assets/img/gallery/gal2.png')?>" class="img-thumbnail-yw" onclick="openModal(this)">
                 </div>
                 <div class="col-6">
-                    <img src="https://adammarulyanto.github.io/weddinginv.github.io/assets/img/gallery/gal4.png" class="img-thumbnail-yw" onclick="openModal(this)">
+                    <img src="<?=base_url('assets/img/gallery/gal4.png')?>" class="img-thumbnail-yw" onclick="openModal(this)">
                 </div>
                 <div class="col-6">
-                    <img src="https://adammarulyanto.github.io/weddinginv.github.io/assets/img/gallery/gal5.png" class="img-thumbnail-yw" onclick="openModal(this)">
+                    <img src="<?=base_url('assets/img/gallery/gal5.png')?>" class="img-thumbnail-yw" onclick="openModal(this)">
                 </div>
                 <div class="col-6">
-                    <img src="https://adammarulyanto.github.io/weddinginv.github.io/assets/img/gallery/gal6.png" class="img-thumbnail-yw" onclick="openModal(this)">
+                    <img src="<?=base_url('assets/img/gallery/gal6.png')?>" class="img-thumbnail-yw" onclick="openModal(this)">
                 </div>
                 <div class="col-6">
-                    <img src="https://adammarulyanto.github.io/weddinginv.github.io/assets/img/gallery/gal5.png" class="img-thumbnail-yw" onclick="openModal(this)">
+                    <img src="<?=base_url('assets/img/gallery/gal5.png')?>" class="img-thumbnail-yw" onclick="openModal(this)">
                 </div>
                 <div class="col-6">
-                    <img src="https://adammarulyanto.github.io/weddinginv.github.io/assets/img/gallery/gal6.png" class="img-thumbnail-yw" onclick="openModal(this)">
+                    <img src="<?=base_url('assets/img/gallery/gal6.png')?>" class="img-thumbnail-yw" onclick="openModal(this)">
                 </div>
             </div>
         </div>
@@ -201,7 +201,7 @@ Tangerang Selatan</p>
                     </div>
                     <div class="col-6 icon-hadiah">
                         <div class="circle-img" id="openModal">
-                            <img src="https://adammarulyanto.github.io/weddinginv.github.io/assets/img/gift.png">
+                            <img src="<?=base_url('assets/img/gift.png')?>">
                         </div>
                     </div>
                 </div>
@@ -412,10 +412,10 @@ Tangerang Selatan</p>
             
             if (audio.paused) {
                 audio.play();
-                document.body.style.overflow = "auto"; // Mengaktifkan scroll
+                document.body.style.overflow = "hidden scroll"; // Mengaktifkan scroll
             } else {
                 audio.pause();
-                document.body.style.overflow = "auto"; // Mengaktifkan scroll
+                document.body.style.overflow = "hidden scroll"; // Mengaktifkan scroll
             }
 
             // Scroll ke bawah 100vh
