@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Stylish Portfolio - Start Bootstrap Template</title>
+        <title>The Wedding of Yudha & Widdy</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
@@ -267,13 +267,15 @@ Tangerang Selatan</p>
                 <h6 class="komentar-title">Kehadiran</h6>
             </div>
             <form id="commentForm" action="<?= base_url('Home/submit_comment'); ?>" method="post">
-                <input class="form-control mb-3" type="text" id="name" name="name" placeholder="Nama" required>
+                <input class="form-control mb-3" type="text" value="<?=$data['nama']?>" disabled>
+                <input type="hidden" id="name" name="name" placeholder="Nama" value="<?=$data['nama']?>">
                 <textarea class="form-control mb-3" id="message" name="message" placeholder="Ucapan" required></textarea>
                 <select class="form-control mb-3" id="attendance" name="attendance" required>
                     <option value="Hadir">Hadir</option>
                     <option value="Tidak Hadir">Tidak Hadir</option>
                     <option value="Belum Pasti">Belum Pasti</option>
                 </select>
+                <input type="hidden" name="user_id" value="<?=$_GET['id']?>">
                 <button class="btn-kirim-ucapan" type="submit" id="submitComment">Kirim</button>
             </form>
 
@@ -327,6 +329,8 @@ Tangerang Selatan</p>
             </div>
         </div>
         <!-- Scroll to Top Button-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+
         <a class="scroll-to-top rounded" href="#page-top"><i class="fas fa-angle-up"></i></a>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -457,14 +461,14 @@ Tangerang Selatan</p>
                 image.classList.remove('bottom');
                 widdy.classList.remove('visible');
             }
-            if (scrollPosition > threshold*2) {
+            if (scrollPosition > threshold*1.8) {
                 image.classList.add('bottom');
                 groom_bride.classList.remove('visible');
                 cont.classList.remove('hilang');
             }else{
                 image.classList.remove('bottom');
             }
-            if (scrollPosition > threshold*2.1) {
+            if (scrollPosition > threshold*2.2) {
                 cont.classList.add('hilang');
             }else{
                 cont.classList.remove('hilang');
@@ -486,7 +490,7 @@ Tangerang Selatan</p>
                 audio.play();
                 document.body.style.overflow = "hidden scroll"; // Mengaktifkan scroll
             } else {
-                audio.pause();
+                // audio.pause();
                 document.body.style.overflow = "hidden scroll"; // Mengaktifkan scroll
             }
 
@@ -576,6 +580,9 @@ Tangerang Selatan</p>
         displayComments();
     </script> -->
     <script>
+        function sha1(str) {
+            return CryptoJS.SHA1(str).toString();
+        }
         function loadComments(page = 1) {
             $.ajax({
                 url: "<?= base_url('Home/get_comments/'); ?>" + page,  // Pastikan hanya satu 'get_comments/'
@@ -589,13 +596,43 @@ Tangerang Selatan</p>
                         commentSection.innerHTML = "";
                         data.comments.forEach(comment => {
                             let div = document.createElement("div");
+                            let hashedCommentId = comment.user_id;
+                            const createdAt = new Date(comment.created_at);
+                            const createdAtFormatted = createdAt.toLocaleDateString('id-ID', { 
+                                day: '2-digit', 
+                                month: 'short', 
+                                year: 'numeric' 
+                            }) + ` ${createdAt.getHours()}:${createdAt.getMinutes().toString().padStart(2, '0')}`;
+
+                            // Determine the image based on attendance status
+                            let attendanceImage = "";
+                            if (comment.attendance === "Hadir") {
+                                attendanceImage = "<img src='<?=base_url("assets/img/check.png")?>' alt='Hadir' class='attendance-icon'>";
+                            } else if (comment.attendance === "Tidak Hadir") {
+                                attendanceImage = "<img src='<?=base_url("assets/img/remove.png")?>' alt='Tidak Hadir' class='attendance-icon'>";
+                            } else {
+                                attendanceImage = "<img src='<?=base_url("assets/img/question.png")?>' alt='Lainnya' class='attendance-icon'>";
+                            }
+
                             div.classList.add("comment");
-                            div.innerHTML = `<strong>${comment.name}</strong> (${comment.attendance})
+
+                            // Hashing SHA1( SHA1(id) ) di JavaScript (butuh library)
+
+                            const hashedIdFromPHP = "<?=$_GET['id']?>";
+
+                            // Jika hash cocok dengan yang dari PHP ($_GET['id'])
+                            if (sha1(sha1(hashedCommentId)) === hashedIdFromPHP) {
+                                div.classList.add("sender");
+                            }
+
+                            div.innerHTML = `<strong>${comment.name}</strong> 
+                                             <span class='hadir-bedge'>${attendanceImage}</span>
                                              <p>${comment.message}</p>
-                                             <small>${comment.created_at}</small>`;
+                                             <small>${createdAtFormatted}</small>`;
                             commentSection.appendChild(div);
                         });
                     }
+
 
                     if (paginationSection) {
                         paginationSection.innerHTML = data.pagination;

@@ -63,10 +63,15 @@ class Home extends CI_Controller {
 		$name = strip_tags($this->input->post('name'));
 		$message = strip_tags($this->input->post('message'));
 		$attendance = $this->input->post('attendance');
+		$uid = $this->input->post('user_id');
+		$user = $this->HomeModel->get_id_by_sha1($uid);
+
+
 
 		// Simpan ke database
 		$data = [
 		    'name' => $name,
+		    'user_id' => $user['id'],
 		    'message' => $message,
 		    'attendance' => $attendance,
 		    'created_at' => date('Y-m-d H:i:s')
