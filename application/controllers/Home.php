@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+
 class Home extends CI_Controller {
 
 	/**
@@ -23,6 +24,7 @@ class Home extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('HomeModel');
+        $this->load->model('ExcelModel');
         $this->load->library('form_validation');
     }
 
@@ -118,4 +120,6 @@ class Home extends CI_Controller {
 
         echo json_encode($data);
     }
+
+
 }
