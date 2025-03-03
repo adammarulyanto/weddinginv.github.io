@@ -118,7 +118,7 @@
                                         $wa_link = "https://wa.me/{$nomor}?text={$pesan}";
                                         ?>   
                                         <tr>
-                                            <td><a href="<?=base_url('?id='.sha1(sha1($user['id'])))?>"><?= $user['nama']; ?></a></td>
+                                            <td><a href="<?=base_url('?to='.urlencode($user['nama']))?>"><?= $user['nama']; ?></a></td>
                                             <td><?= $user['wa']; ?></td>
                                             <td><?= $user['ig']; ?></td>
                                             <td><?= $user['created_at']; ?></td>

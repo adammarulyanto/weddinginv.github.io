@@ -30,8 +30,8 @@ class HomeModel extends CI_Model {
         return $this->db->count_all('comments');
     }
 
-    public function get_by_id($id) {
-        return $this->db->get_where('users', ['sha1(sha1(id))' => $id])->row_array(); // Query untuk mencari ID
+    public function get_by_id($to) {
+        return $this->db->get_where('users', ['nama' => $to])->row_array(); // Query untuk mencari ID
     }
 
     public function get_id_by_sha1($uid) {

@@ -30,15 +30,15 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		$id = $this->input->get('id'); // Ambil ID dari URL
+		$to = $this->input->get('to'); // Ambil ID dari URL
         
-        if (!$id) {
+        if (!$to) {
             show_404(); // Jika ID tidak ada di URL, tampilkan 404
             return;
         }
         
         $this->load->model('HomeModel'); // Load model
-        $data = $this->HomeModel->get_by_id($id); // Cek di database
+        $data = $this->HomeModel->get_by_id($to); // Cek di database
         
         if ($data) {
             $this->load->view('home', ['data' => $data]); // Load view jika ditemukan
@@ -66,14 +66,13 @@ class Home extends CI_Controller {
 		$message = strip_tags($this->input->post('message'));
 		$attendance = $this->input->post('attendance');
 		$uid = $this->input->post('user_id');
-		$user = $this->HomeModel->get_id_by_sha1($uid);
 
 
 
 		// Simpan ke database
 		$data = [
 		    'name' => $name,
-		    'user_id' => $user['id'],
+		    'user_id' => $uid,
 		    'message' => $message,
 		    'attendance' => $attendance,
 		    'created_at' => date('Y-m-d H:i:s')

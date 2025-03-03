@@ -48,7 +48,7 @@
         <header class="parallax-container">
             <div class="mengundang container px-4 px-lg-5 text-center" id="mengundang">
                 <h5 class="dear">Dear :</h5>
-                <h5 class="kepada"><?= htmlspecialchars($data['nama']); ?></h5>
+                <h5 class="kepada"><?=$data['nama'];?></h5>
                 <h5 class="pleasebe">Please be a part of our happiest moment</h5>
                 <div class="button-lagu" onclick="toggleAudio()"><img src="<?= base_url('assets/img/down-arrow.png');?>"></div>
             </div>
@@ -277,7 +277,7 @@ Tangerang Selatan</p>
                         <option value="Tidak Hadir">Tidak Hadir</option>
                         <option value="Belum Pasti">Belum Pasti</option>
                     </select>
-                    <input type="hidden" name="user_id" value="<?=$_GET['id']?>">
+                    <input type="hidden" name="user_id" value="<?=$data['id']?>">
                     <button class="btn-kirim-ucapan" type="submit" id="submitComment"><i class="fa fa-paper-plane"></i></button>
                 </form>
             </div>
@@ -598,7 +598,7 @@ Tangerang Selatan</p>
                         commentSection.innerHTML = "";
                         data.comments.forEach(comment => {
                             let div = document.createElement("div");
-                            let hashedCommentId = comment.user_id;
+                            let hashedCommentId = comment.name;
                             const createdAt = new Date(comment.created_at);
                             const createdAtFormatted = createdAt.toLocaleDateString('id-ID', { 
                                 day: '2-digit', 
@@ -620,10 +620,10 @@ Tangerang Selatan</p>
 
                             // Hashing SHA1( SHA1(id) ) di JavaScript (butuh library)
 
-                            const hashedIdFromPHP = "<?=$_GET['id']?>";
+                            const hashedIdFromPHP = "<?=$_GET['to']?>";
 
                             // Jika hash cocok dengan yang dari PHP ($_GET['id'])
-                            if (sha1(sha1(hashedCommentId)) === hashedIdFromPHP) {
+                            if (hashedCommentId === hashedIdFromPHP) {
                                 div.classList.add("sender");
                             }
 
