@@ -114,8 +114,9 @@
                                     <tbody>
                                         <?php foreach ($users as $user) : 
                                         $nomor = $user['wa']; // Pastikan hanya angka
-                                        $pesan = "Halo ".$user['nama'].", Dateng ya! Terima kasih localhost/wedding/?id=".sha1(sha1($user['id']));
-                                        $wa_link = "https://wa.me/{$nomor}?text={$pesan}";
+                                        $encoded_link = base_url()."?to=".rawurlencode($user['nama']); // Encoding untuk URL
+                                        $pesan = "Halo ".$user['nama'].", Dateng ya! Terima kasih ".$encoded_link;
+                                        $wa_link = "https://wa.me/{$nomor}?text=" . urlencode($pesan);
                                         ?>   
                                         <tr>
                                             <td><a href="<?=base_url('?to='.urlencode($user['nama']))?>"><?= $user['nama']; ?></a></td>
