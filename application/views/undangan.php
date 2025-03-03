@@ -60,14 +60,14 @@
                         <span class="icon text-white-50">
                             <i class="fa fa-file-excel"></i>
                         </span>
-                        <span class="text">Upload Data</span>
+                        <span class="text">Change Data</span>
                     </a>
-                    <a href="#" class="btn btn-danger btn-icon-split mb-4">
+                    <!-- <a href="<?=base_url()?>admin/delete_all" class="btn btn-danger btn-icon-split mb-4">
                         <span class="icon text-white-50">
                             <i class="fas fa-trash"></i>
                         </span>
                         <span class="text">Delete All Data</span>
-                    </a>
+                    </a> -->
 
                     <!-- Modal -->
                     <div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">

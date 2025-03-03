@@ -11,11 +11,19 @@ class AdminModel extends CI_Model {
 
 
     public function get_undangan() {
-        return $this->db->get('users')->result_array(); // Ambil semua data dari tabel users
+        return $this->db->where("deleted_at IS NULL", NULL, FALSE)
+                    ->get('users')
+                    ->result_array();
     }
 
     public function get_comments() {
         return $this->db->get('comments')->result_array(); // Ambil semua data dari tabel users
+    }
+
+    public function delete_all_users() {
+        $this->db->set('deleted_at', 'CURRENT_TIMESTAMP', FALSE) // FALSE agar tidak dianggap string
+                 ->where('deleted_at', NULL, FALSE)
+                 ->update('users');
     }
 
 }

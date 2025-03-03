@@ -135,11 +135,13 @@ body{
 	border-radius: 5px;
 	width: auto;
 	border: 1px rgba(0, 0, 0, 0.1) solid;
+	bottom: 13px;
 }
 .container-form button{
 	position: absolute;
 	right: 13px;
 	bottom: 13px;
+	border:0;
 }
 
 /* Logo bank */

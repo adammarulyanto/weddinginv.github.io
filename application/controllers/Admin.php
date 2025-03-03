@@ -56,6 +56,7 @@ class Admin extends CI_Controller {
         $config['overwrite']     = TRUE;
 
         $this->upload->initialize($config);
+        $this->delete_all();
 
         if (!$this->upload->do_upload('excel_file')) {
             echo json_encode(['error' => $this->upload->display_errors()]);
@@ -80,4 +81,8 @@ class Admin extends CI_Controller {
         
         echo json_encode(['success' => 'Data berhasil disimpan!']);
     }
+    public function delete_all() {
+	    $this->load->model('AdminModel'); // Pastikan model sudah dimuat
+	    $this->AdminModel->delete_all_users(); 
+	}
 }

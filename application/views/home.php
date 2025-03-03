@@ -272,7 +272,7 @@ Tangerang Selatan</p>
                     <h6><?=$data['nama']?></h6>
                     <input type="hidden" id="name" name="name" placeholder="Nama" value="<?=$data['nama']?>">
                     <textarea class="mb-3" id="message" name="message" placeholder="Ucapan.." required style="outline: none;"></textarea>
-                    <select class="form-control mb-3" id="attendance" name="attendance" required>
+                    <select class="form-control" id="attendance" name="attendance" required>
                         <option value="Hadir">Hadir</option>
                         <option value="Tidak Hadir">Tidak Hadir</option>
                         <option value="Belum Pasti">Belum Pasti</option>
