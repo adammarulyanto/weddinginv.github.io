@@ -25,6 +25,7 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400..900&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link href="<?=base_url()?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -266,19 +267,20 @@ Tangerang Selatan</p>
                 <h6 class="form-title">Doa</h6>
                 <h6 class="komentar-title">Kehadiran</h6>
             </div>
-            <form id="commentForm" action="<?= base_url('Home/submit_comment'); ?>" method="post">
-                <input class="form-control mb-3" type="text" value="<?=$data['nama']?>" disabled>
-                <input type="hidden" id="name" name="name" placeholder="Nama" value="<?=$data['nama']?>">
-                <textarea class="form-control mb-3" id="message" name="message" placeholder="Ucapan" required></textarea>
-                <select class="form-control mb-3" id="attendance" name="attendance" required>
-                    <option value="Hadir">Hadir</option>
-                    <option value="Tidak Hadir">Tidak Hadir</option>
-                    <option value="Belum Pasti">Belum Pasti</option>
-                </select>
-                <input type="hidden" name="user_id" value="<?=$_GET['id']?>">
-                <button class="btn-kirim-ucapan" type="submit" id="submitComment">Kirim</button>
-            </form>
-
+            <div class="container-form">
+                <form id="commentForm" action="<?= base_url('Home/submit_comment'); ?>" method="post">
+                    <h6><?=$data['nama']?></h6>
+                    <input type="hidden" id="name" name="name" placeholder="Nama" value="<?=$data['nama']?>">
+                    <textarea class="mb-3" id="message" name="message" placeholder="Ucapan.." required style="outline: none;"></textarea>
+                    <select class="form-control mb-3" id="attendance" name="attendance" required>
+                        <option value="Hadir">Hadir</option>
+                        <option value="Tidak Hadir">Tidak Hadir</option>
+                        <option value="Belum Pasti">Belum Pasti</option>
+                    </select>
+                    <input type="hidden" name="user_id" value="<?=$_GET['id']?>">
+                    <button class="btn-kirim-ucapan" type="submit" id="submitComment"><i class="fa fa-paper-plane"></i></button>
+                </form>
+            </div>
             <hr>
             <div id="commentSection">
             </div>
