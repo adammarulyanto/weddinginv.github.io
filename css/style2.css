@@ -42,6 +42,40 @@ body{
         opacity: 1;
     }
 }
+/* Animasi rotasi */
+		.muncul{
+			opacity: 1;
+		}
+        .rotating {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+/* Tombol play/pause */
+    .audio-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        z-index: 200;
+    }
+
+    .audio-button img {
+        width: 100%;
+        height: 100%;
+        display: none;
+    }
+
+
 .alamat-hadiah p {
 	font-size: 15px;
 }
@@ -86,10 +120,7 @@ body{
 	color: #FFF;
 	width: 40px;
 	height: 40px;
-	border-radius: 100%;
-	background: #0F2027;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background-color: rgba(0, 0, 0, 0);
 }
 .container-form{
 	position: relative;
@@ -139,7 +170,7 @@ body{
 }
 .container-form button{
 	position: absolute;
-	right: 13px;
+	right: 20px;
 	bottom: 13px;
 	border:0;
 }
@@ -291,21 +322,30 @@ body{
 .agenda-heading{
 	position: relative;
 	width: 70%;
-	height: 200px;
+	height: 150px;
 }
 .agenda-title{
 	position: absolute;
 	font-family: 'Maven Pro';
-	font-size: 50pt;
+	font-size: 40pt;
 	font-weight:bolder;
 	opacity: 0.3;
-	left: 25%;
-	top: 5px;
+	left: 30px;
+	top: 15px;
+}
+.tgl-title{
+	position: absolute;
+	font-family: 'Allison';
+	font-size: 40pt;
+	font-weight:bolder;
+	color: #020202;
+	left: 0px;
+	top: 35px;
 }
 .gallery-heading{
 	position: relative;
 	width: 80%;
-	height: 200px;
+	height: 150px;
 	margin: 0 auto;
 }
 .gallery-title{
@@ -377,6 +417,7 @@ body{
 	top: 30px;
 }
 .btn-buka-sayang{
+	margin-top: 15px;
 	border: 1px rgba(0, 0, 0, 1.0) solid ;
 	border-radius: 50px;
 	text-decoration: none;
@@ -407,11 +448,22 @@ body{
 	color: #FEFEFE;
 }
 .akad{
+	position: relative;
 	padding: 30px;
+	padding-top: 80px;
 	border-right: 1px rgba(0, 0, 0, 0.2) solid;
   	font-family: "Montserrat", serif;
   	font-size: 10pt;
   	text-align: left;
+}
+.akad img{
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 10%;
+	width: 100px;
+	opacity: 50px;
+	opacity: 0.2;
 }
 .akad h4{
 	font-weight: 200;
@@ -419,10 +471,40 @@ body{
 .akad h1{
 	font-size: 30pt;
 }
+.tgl-agenda{
+	border-bottom: 1px rgba(0, 0, 0, 0.2) solid;
+	padding-bottom: 80px;
+}
+.tgl-agenda h4{
+	font-weight: 200;
+}
+.tgl-agenda h1{
+	font-size: 40pt;
+	margin-bottom: 30px;
+}
+.btn-add-calendar{
+	margin-top: 50px;
+	border: 1px rgba(0, 0, 0, 1.0) solid ;
+	border-radius: 50px;
+	text-decoration: none;
+	padding: 10px 20px;
+	color: #020202;
+}
 .resepsi{
 	padding: 30px;
+	padding-top: 80px;
   	font-family: "Montserrat", serif;
   	text-align: left;
+	position: relative;
+}
+.resepsi img{
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 10%;
+	width: 100px;
+	opacity: 50px;
+	opacity: 0.2;
 }
 .resepsi h4{
 	font-weight: 200;
@@ -432,18 +514,7 @@ body{
 }
 .alamat{
 	padding: 30px;
-	border-top: 1px rgba(0, 0, 0, 0.2) solid;;
-}
-.tgl-title{
-	position: absolute;
-  	font-family: "Montserrat", serif;
-	font-size: 96pt;
-	font-weight: bolder;
-	left: 0;
-	top: 35px;
-}
-.tgl-title span{
-	font-size: 30pt;
+	border-top: 1px rgba(0, 0, 0, 0.2) solid;
 }
 .map{
 	margin: 0;
@@ -663,7 +734,7 @@ body{
     width: 100%;
     max-width: 500px;
     height: 50vh;
-    background-image: url('../assets/img/gallery/gal2.png');
+    background-image: url('../assets/img/yw_personal.png');
     background-size: cover;
     background-position: center;
     border-radius: 20px;
@@ -916,4 +987,80 @@ body{
     align-items: center;
     text-align: center;
     color: #FEFEFE;
+}
+
+
+/* countdown */
+.countdown-container {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 40px;
+    height: 60px;
+    background: #020202;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: height 0.3s ease-in-out;
+    border:1px rgba(255, 255, 255, 0.3) solid;
+    text-align: center;
+    overflow: hidden;
+    z-index: 200;
+    display: none;
+}
+.countdown-container{
+	margin-top: 5px;
+}
+
+.countdown-container span{
+	font-size: 14px;
+}
+.countdown-container h6{
+	font-size: 10px;
+	text-decoration: none;
+}
+
+/* Saat Diperbesar */
+.expanded {
+    height: 260px;
+    border-radius: 30px;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 10px;
+    background-color: #020202;
+}
+
+.countdown-item {
+    font-size: 12px;
+    margin: 5px 0;
+    color: #FFF;
+    padding: 5px;
+    border-radius: 10px;
+    width: 50px;
+    text-align: center;
+    display: none; /* Default disembunyikan */
+}
+.container-cd{
+	width: 80%;
+	margin: 0 auto;
+	border-radius: 15px;
+	padding: 10px;
+	background-color: #020202;
+	color: #FFF;
+	position: absolute;
+	bottom: -35px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+#hari h1, #jam h1, #menit h1, #detik h1{
+	font-size: 30px;
+	margin: 0;
+}
+#hari p, #jam p, #menit p, #detik p{
+	font-size: 15px;
+	margin: 0;
 }

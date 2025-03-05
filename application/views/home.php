@@ -16,7 +16,7 @@
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
         <link href="css/styles.css" rel="stylesheet"/>
         <link href="css/style2.css" rel="stylesheet"/>
         <link href='https://fonts.googleapis.com/css?family=Allison' rel='stylesheet'>
@@ -26,6 +26,8 @@
 		<link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400..900&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
         <link href="<?=base_url()?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -44,7 +46,18 @@
 
         <audio id="myAudio" autoplay muted>
           <source src="<?= base_url('assets/lagu.mp3'); ?>" type="audio/mpeg">
-        </audio>
+        </audio>        
+        <div class="audio-button" onclick="toggleAudio2()" data-aos="zoom-in" data-aos-duration="1500">
+            <img src="<?= base_url('assets/img/disc.png') ?>" id="audioIcon" alt="Play">
+        </div>
+         <!-- Countdown Timer -->
+        <div class="countdown-container" id="countdown" onclick="toggleCountdown(event)">
+            <span id="countdown-days">0</span>
+            <div class="countdown-item" id="days">0<br>Hari</div>
+            <div class="countdown-item" id="hours">0<br>Jam</div>
+            <div class="countdown-item" id="minutes">0<br>Menit</div>
+            <div class="countdown-item" id="seconds">0<br>Detik</div>
+        </div>
         <header class="parallax-container">
             <div class="mengundang container px-4 px-lg-5 text-center" id="mengundang">
                 <h5 class="dear">Dear :</h5>
@@ -72,7 +85,7 @@
             <div class="container px-4 px-lg-5 text-center">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-10">
-                        <p class="surat">
+                        <p class="surat" data-aos="zoom-in" data-aos-duration="1500">
                             “Dan segala sesuatu Kami ciptakan berpasang-pasangan agar kamu mengingat (kebesaran Allah)”<br>QS. Az-Zariyat:49
                         </p>
                     </div>
@@ -105,24 +118,42 @@
         <section class="content-section text-center agenda" id="services">
             <div class="container px-4 px-lg-5">
                 <div class="agenda-heading">
-                    <h3 class="agenda-title">Agenda</h3>
-                    <h2 class="tgl-title">13<span>April</span></h2>
+                    <h3 class="agenda-title">Save</h3>
+                    <h2 class="tgl-title">The Date</h2>
                 </div>
-                <div class="row gx-4 gx-lg-5">
-                    <div class="akad col-6">
+                <div class="row" >
+                    <div class="tgl-agenda col-12" data-aos="zoom-in" data-aos-duration="1000">
+                        <h4><strong>Tanggal</strong></h4>
+                        <h1>13 <span>April 2025</span></h1>
+                        <a class="btn-add-calendar" target="_blank" href="https://calendar.google.com/calendar/u/0/r/eventedit?text=The%20Wedding%20of%20Yudha%20%26%20Widdy&dates=20240413T020000Z/20240413T163000Z&details=Merupakan%20suatu%20kehormatan%20dan%20kebahagiaan%20bagi%20kami%20apabila%20Bapak/Ibu/Saudara/i%20berkenan%20hadir%20untuk%20memberikan%20do’a%20restu.%20Atas%20kehadiran%20dan%20do’a%20restunya%20kami%20ucapkan%20terima%20kasih.%20Kami%20yang%20berbahagia.&location=https%3A%2F%2Fmaps.app.goo.gl%2F1ngW2q2tyRhXmPrC7">Add to Calendar</a>
+                        <div class="row container-cd">
+                            <div class="col-3" id="hari">
+                            </div>
+                            <div class="col-3" id="jam">
+                            </div>
+                            <div class="col-3" id="menit">
+                            </div>
+                            <div class="col-3" id="detik">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="akad col-6" data-aos="zoom-in" data-aos-duration="1000">
+                        <img src="<?=base_url()?>assets/img/rings.png">
                         <h4><strong>Akad</strong></h4>
                         <h1>09:00</h1>
                         <h5>s/d Selesai</h5>
                     </div>
-                    <div class="resepsi col-6">
+                    <div class="resepsi col-6" data-aos="zoom-in" data-aos-duration="1200">
+                        <img src="<?=base_url()?>assets/img/arch.png">
                         <h4><strong>Resepsi</strong></h4>
                         <h1>10:00</h1>
                         <h5>s/d Selesai</h5>
                     </div>
-                    <div class="alamat col-12">
+                    <div class="alamat col-12" data-aos="zoom-in" data-aos-duration="1300">
                         <p>Jl. Rumahnya widdy kayanya, daerah jombang, 
 Tangerang Selatan</p>
-                        <a class="btn-buka-sayang" href="https://maps.app.goo.gl/1ngW2q2tyRhXmPrC7">Buka Maps</a>
+<br>
+                        <a class="btn-buka-sayang" href="https://maps.app.goo.gl/1ngW2q2tyRhXmPrC7">Open Maps</a>
                     </div>
                 </div>
             </div>
@@ -133,26 +164,26 @@ Tangerang Selatan</p>
         <!-- Callout-->
         <div class="container-gallery">
             <div class="gallery-heading">
-                <h6 class="gallery-title">Galeri</h6>
-                <h6 class="fkami-title">Foto Kami</h6>
+                <h6 class="gallery-title">Our</h6>
+                <h6 class="fkami-title">Gallery</h6>
             </div>
             <div class="row gallery">
-                <div class="col-6">
-                    <img src="<?=base_url('assets/img/gallery/gal2.png')?>" class="img-thumbnail-yw" onclick="openModal(this)">
+                <div class="col-12" data-aos="zoom-in" data-aos-duration="1500">
+                    <img src="<?=base_url('assets/img/gallery/gal2.png')?>" class="img-thumbnail-yw head" onclick="openModal(this)">
                 </div>
-                <div class="col-6">
-                    <img src="<?=base_url('assets/img/gallery/gal4.png')?>" class="img-thumbnail-yw" onclick="openModal(this)">
+                <div class="col-12" data-aos="zoom-in" data-aos-duration="1500">
+                    <img src="<?=base_url('assets/img/gallery/gal4.png')?>" class="img-thumbnail-yw head" onclick="openModal(this)">
                 </div>
-                <div class="col-6">
+                <div class="col-6" data-aos="zoom-in" data-aos-duration="1500">
                     <img src="<?=base_url('assets/img/gallery/gal5.png')?>" class="img-thumbnail-yw" onclick="openModal(this)">
                 </div>
-                <div class="col-6">
+                <div class="col-6" data-aos="zoom-in" data-aos-duration="1500">
                     <img src="<?=base_url('assets/img/gallery/gal6.png')?>" class="img-thumbnail-yw" onclick="openModal(this)">
                 </div>
-                <div class="col-6">
+                <div class="col-6" data-aos="zoom-in" data-aos-duration="1500">
                     <img src="<?=base_url('assets/img/gallery/gal5.png')?>" class="img-thumbnail-yw" onclick="openModal(this)">
                 </div>
-                <div class="col-6">
+                <div class="col-6" data-aos="zoom-in" data-aos-duration="1500">
                     <img src="<?=base_url('assets/img/gallery/gal6.png')?>" class="img-thumbnail-yw" onclick="openModal(this)">
                 </div>
             </div>
@@ -200,10 +231,10 @@ Tangerang Selatan</p>
                     <h6 class="kasih-title">Kasih</h6>
                 </div>
                 <div class="row">
-                    <div class="col-6 notes-hadiah">
+                    <div class="col-6 notes-hadiah" data-aos="zoom-in" data-aos-duration="1500">
                         <p>Terima kasih telah menambah semangat kegembiraan pernikahan kami dengan kehadiran dan hadiah indah Anda.</p>
                     </div>
-                    <div class="col-6 icon-hadiah">
+                    <div class="col-6 icon-hadiah"  data-aos="zoom-in" data-aos-duration="1500">
                         <div class="circle-img" id="openModal">
                             <img src="<?=base_url('assets/img/gift.png')?>">
                         </div>
@@ -267,7 +298,7 @@ Tangerang Selatan</p>
                 <h6 class="form-title">Doa</h6>
                 <h6 class="komentar-title">Kehadiran</h6>
             </div>
-            <div class="container-form">
+            <div class="container-form" data-aos="zoom-in" data-aos-duration="1500">
                 <form id="commentForm" action="<?= base_url('Home/submit_comment'); ?>" method="post">
                     <h6><?=$data['nama']?></h6>
                     <input type="hidden" id="name" name="name" placeholder="Nama" value="<?=$data['nama']?>">
@@ -278,7 +309,7 @@ Tangerang Selatan</p>
                         <option value="Belum Pasti">Belum Pasti</option>
                     </select>
                     <input type="hidden" name="user_id" value="<?=$data['id']?>">
-                    <button class="btn-kirim-ucapan" type="submit" id="submitComment"><i class="fa fa-paper-plane"></i></button>
+                    <button class="btn-kirim-ucapan" type="submit" id="submitComment"><img style="width: 40px; margin-right: 10px;" src="<?=base_url()?>assets/img/send.png"></button>
                 </form>
             </div>
             <hr>
@@ -287,8 +318,6 @@ Tangerang Selatan</p>
 
             <!-- Pagination -->
             <div class="pagination" id="pagination"></div>
-
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script>
                 $(document).ready(function () {
                     $('#commentForm').submit(function (event) {
@@ -321,7 +350,13 @@ Tangerang Selatan</p>
         <div class="footer text-center">
             <div class="glass-bg">
                 <div class="pba col-12">
-                    <p>Please be a part of our happiest moment.</p>
+                    <p>Merupakan suatu kehormatan dan
+                        kebahagiaan bagi kami apabila
+                        Bapak/Ibu/Saudara/i berkenan hadir
+                        untuk memberikan do’a restu.
+                        Atas kehadiran dan do’a restunya
+                        kami ucapkan terima kasih.
+                        Kami yang berbahagia.</p>
                 </div>
                 <div class="cont-berdua-footer">
                     <h5 class="siyudha-f">Yudha  Widdy</h5>
@@ -330,10 +365,13 @@ Tangerang Selatan</p>
                 <p>Copyright &copy; Yudha <3 Widdy 2025</p>
             </div>
         </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>
         <!-- Scroll to Top Button-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 
-        <a class="scroll-to-top rounded" href="#page-top"><i class="fas fa-angle-up"></i></a>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
@@ -345,39 +383,10 @@ Tangerang Selatan</p>
         };
         </script>
         <script>
-            
-
             // Update saat load dan saat resize
             window.addEventListener('resize', updateVariable);
             updateVariable(); // Jalankan saat pertama kali load
         </script>
-        <!-- <script>
-        const layers = document.querySelectorAll('.layer');
-
-        function updateParallax(x, y) {
-            layers.forEach(layer => {
-                const speed = layer.getAttribute('data-speed');
-                const xMove = (x * speed) / 20;
-                const yMove = (y * speed) / 20;
-                layer.style.transform = `translate(${xMove}px, ${yMove}px) scale(${1 + speed / 100})`;
-            });
-        }
-
-        // Deteksi Gyroscope (Mobile)
-        window.addEventListener("deviceorientation", (event) => {
-            let x = event.gamma || 0;  // Kiri-kanan
-            let y = event.beta || 0;   // Atas-bawah
-            updateParallax(x, y);
-        });
-
-        // Fallback untuk Mouse (Desktop)
-        window.addEventListener("mousemove", (event) => {
-            let x = (event.clientX - window.innerWidth / 2) / 25;
-            let y = (event.clientY - window.innerHeight / 2) / 25;
-            updateParallax(x, y);
-        });
-
-    	</script> -->
     	<script>
         const image = document.getElementById('targetImage');
         const surat = document.getElementById('about');
@@ -416,6 +425,8 @@ Tangerang Selatan</p>
         	let containerHeight = container.offsetHeight; // Tinggi container
             let tinggiLayar= window.innerHeight
             let threshold = tinggiLayar * scaleTreshold();// 12.5% dari tinggi container
+            const audioIcon = document.getElementById("audioIcon");
+            const cd = document.getElementById("countdown");
 
             // document.getElementById('threshold-value').textContent = threshold.toFixed(2); // Tampilkan threshold awal
             // document.getElementById('containerHeight-value').textContent = containerHeight.toFixed(2); // Tampilkan threshold awal
@@ -437,8 +448,12 @@ Tangerang Selatan</p>
             // 1. Munculkan gambar saat mulai masuk viewport
             if (imagePosition < triggerHeight) {
                 image.classList.add('visible');
+                audioIcon.style.display="block";
+                cd.style.display="flex";
             } else {
                 image.classList.remove('visible');
+                audioIcon.style.display="none";
+                cd.style.display="none";
             }
             //2. Jika gambar sudah sepenuhnya terlihat, jadikan fixed
             if (scrollPosition >= threshold ) {
@@ -477,6 +492,8 @@ Tangerang Selatan</p>
             }
         });
     </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             let audio = document.getElementById("myAudio");
@@ -485,102 +502,101 @@ Tangerang Selatan</p>
         });
         
         function toggleAudio() {
+
             let audio = document.getElementById("myAudio");
             let button = document.querySelector("button");
             
             if (audio.paused) {
                 audio.play();
                 document.body.style.overflow = "hidden scroll"; // Mengaktifkan scroll
+                audioIcon.classList.add("rotating");
             } else {
                 // audio.pause();
                 document.body.style.overflow = "hidden scroll"; // Mengaktifkan scroll
+                audioIcon.classList.add("rotating");
             }
 
-            // Scroll ke bawah 100vh
+            
             window.scrollBy({
                 top: window.innerHeight*scaleTreshold()*0.9, // Scroll ke bawah 100vh
                 behavior: "smooth" // Animasi scroll yang halus
             });
+
+            
         }
+        function toggleAudio2() {
+            const audio = document.getElementById("myAudio");
+            const audioIcon = document.getElementById("audioIcon");
+
+            if (audio.paused) {
+                audio.play();
+                audioIcon.classList.add("rotating");
+            } else {
+                audio.pause();
+                audioIcon.classList.remove("rotating");
+            }
+        }
+
+        function updateCountdown() {
+            const targetDate = new Date("2025-04-13T09:00:00+07:00"); // Ganti tanggal sesuai kebutuhan
+            const now = new Date();
+            const diff = targetDate - now;
+
+            if (diff <= 0) {
+                document.getElementById("main-countdown").innerHTML = "0 Hari 0 Jam 0 Menit 0 Detik";
+                document.getElementById("countdown-days").innerHTML = "0";
+                document.getElementById("days").innerHTML = "0 Hari";
+                document.getElementById("hours").innerHTML = "0 Jam";
+                document.getElementById("minutes").innerHTML = "0 Menit";
+                document.getElementById("seconds").innerHTML = "0 Detik";
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById("hari").innerHTML = `<h1>${days}</h1><p>Hari</p>`;
+            document.getElementById("jam").innerHTML = `<h1>${hours}</h1><p>Jam</p>`;
+            document.getElementById("menit").innerHTML = `<h1>${minutes}</h1><p>Menit</p>`;
+            document.getElementById("detik").innerHTML = `<h1>${seconds}</h1><p>Detik</p>`;
+            document.getElementById("countdown-days").innerHTML = `${days}<br><h6>Hari</h6>`;
+            document.getElementById("days").innerHTML = `${days} <br>Hari`;
+            document.getElementById("hours").innerHTML = `${hours} <br>Jam`;
+            document.getElementById("minutes").innerHTML = `${minutes} <br>Menit`;
+            document.getElementById("seconds").innerHTML = `${seconds} <br>Detik`;
+        }
+
+        function toggleCountdown(event) {
+            event.stopPropagation(); // Mencegah klik luar langsung menutup
+            const countdown = document.getElementById("countdown");
+            const countdownItems = document.querySelectorAll(".countdown-item");
+
+            if (countdown.classList.contains("expanded")) {
+                countdown.classList.remove("expanded");
+                countdownItems.forEach(item => item.style.display = "none");
+                document.getElementById("countdown-days").style.display = "block";
+            } else {
+                countdown.classList.add("expanded");
+                countdownItems.forEach(item => item.style.display = "block");
+                document.getElementById("countdown-days").style.display = "none";
+            }
+        }
+
+        function closeCountdown(event) {
+            const countdown = document.getElementById("countdown");
+
+            if (!countdown.contains(event.target)) {
+                countdown.classList.remove("expanded");
+                document.querySelectorAll(".countdown-item").forEach(item => item.style.display = "none");
+                document.getElementById("countdown-days").style.display = "block";
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Jalankan saat pertama kali
     </script>
-
-    <!-- <script>
-        let comments = [
-            { name: "Budi", message: "Selamat! Semoga bahagia selalu!", attendance: "Hadir" },
-            { name: "Ani", message: "Maaf, aku nggak bisa datang :(", attendance: "Tidak Hadir" },
-            { name: "Dewi", message: "Selamat menempuh hidup baru!", attendance: "Hadir" },
-            { name: "Joko", message: "InsyaAllah saya hadir!", attendance: "Hadir" },
-            { name: "Siti", message: "Semoga menjadi keluarga sakinah!", attendance: "Belum Pasti" },
-            { name: "Rizky", message: "Barakallah! Sukses selalu!", attendance: "Hadir" },
-            { name: "Eka", message: "Maaf, nggak bisa datang :(", attendance: "Tidak Hadir" },
-            { name: "Tono", message: "Semoga pernikahan kalian penuh berkah!", attendance: "Hadir" },
-            { name: "Lisa", message: "Saya akan mencoba hadir!", attendance: "Belum Pasti" },
-            { name: "Andi", message: "Senang banget mendengar kabar ini!", attendance: "Hadir" }
-        ];
-
-        let commentsPerPage = 3;
-        let currentPage = 1;
-
-        function displayComments() {
-            let start = (currentPage - 1) * commentsPerPage;
-            let end = start + commentsPerPage;
-            let displayedComments = comments.slice(start, end);
-
-            let commentSection = document.getElementById("commentSection");
-            commentSection.innerHTML = "";
-
-            displayedComments.forEach(comment => {
-                let div = document.createElement("div");
-                div.classList.add("comment");
-                div.innerHTML = `<strong>${comment.name}</strong> (${comment.attendance})
-                                 <p>${comment.message}</p>`;
-                commentSection.appendChild(div);
-            });
-
-            updatePagination();
-        }
-
-        function updatePagination() {
-            let totalPages = Math.ceil(comments.length / commentsPerPage);
-            let paginationDiv = document.getElementById("pagination");
-            paginationDiv.innerHTML = "";
-
-            for (let i = 1; i <= totalPages; i++) {
-                let pageLink = document.createElement("a");
-                pageLink.innerText = i;
-                pageLink.href = "#";
-                pageLink.classList.add("page-link");
-                if (currentPage === i) {
-                    pageLink.classList.add("active");
-                }
-
-                pageLink.addEventListener("click", function (event) {
-                    event.preventDefault();
-                    currentPage = i;
-                    displayComments();
-                });
-
-                paginationDiv.appendChild(pageLink);
-            }
-        }
-
-        document.getElementById("commentForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-
-            let name = document.getElementById("name").value;
-            let message = document.getElementById("message").value;
-            let attendance = document.getElementById("attendance").value;
-
-            if (name && message) {
-                comments.unshift({ name, message, attendance });
-                document.getElementById("commentForm").reset();
-                currentPage = 1;
-                displayComments();
-            }
-        });
-
-        displayComments();
-    </script> -->
     <script>
         function sha1(str) {
             return CryptoJS.SHA1(str).toString();
@@ -617,6 +633,8 @@ Tangerang Selatan</p>
                             }
 
                             div.classList.add("comment");
+                            div.setAttribute("data-aos", "zoom-in");
+                            div.setAttribute("data-aos-duration", "1500");
 
                             // Hashing SHA1( SHA1(id) ) di JavaScript (butuh library)
 
