@@ -104,7 +104,7 @@ class CI_Image_lib {
 	 *
 	 * @var int
 	 */
-	public $quality			= 90;
+	public $quality			= 100;
 
 	/**
 	 * Whether to create a thumbnail
