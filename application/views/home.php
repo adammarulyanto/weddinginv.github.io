@@ -227,8 +227,8 @@ Tangerang Selatan</p>
         <div class="footer text-center">
             <div class="glass-bg">
                 <div class="ty-heading">
-                    <h6 class="terima-title">Terima</h6>
-                    <h6 class="kasih-title">Kasih</h6>
+                    <h6 class="terima-title">Wedding</h6>
+                    <h6 class="kasih-title">Gift</h6>
                 </div>
                 <div class="row">
                     <div class="col-6 notes-hadiah" data-aos="zoom-in" data-aos-duration="1500">
@@ -243,14 +243,19 @@ Tangerang Selatan</p>
             </div>
         </div>
                     <div id="hadiahModal" class="modal-hadiah">
-                        <div class="modal-hadiah-content">
+                        <div class="modal-hadiah-content modal-dialog-centered">
                             <span class="close-hadiah-btn">&times;</span>
                             <div class="row detail-hadiah">
                                 <div class="col-12">
+                                    <h4>Cashless</h4>
                                     <div class="debit-card">
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Bank Logo" class="bank-logo">
-                                        <div class="bank-name">BCA</div>
-                                        <div class="card-number">5435051267</div>
+                                        <img src="https://i0.wp.com/americassbdc.org/wp-content/uploads/2021/05/Visa-logo-white.png?fit=900%2C291&ssl=1" alt="Bank Logo" class="bank-logo">
+                                        <div class="bank-name"><img src="https://www.bca.co.id/-/media/Files/2023/bangga-lokal/web/images/logo-bca-white.svg" class="bank-logo2"></div>
+                                        <div class="copy-container">
+                                            <div class="card-number">5435051267</div>
+                                            <input type="hidden" id="textToCopy" value="5435051267">
+                                            <button id="copyButton" onclick="copyToClipboard()"><i class="fa-regular fa-copy"></i></button>
+                                        </div>
                                         <div class="card-holder">ADAM MARULYANTO</div>
                                         <!-- <div class="expiry">VALID THRU 12/28</div> -->
                                     </div>
@@ -258,7 +263,7 @@ Tangerang Selatan</p>
                                 </div>
                                 <hr>
                                 <div class="col-12 alamat-hadiah">
-                                    <h4>Alamat Rumah</h4>
+                                    <h4>Wedding Gift</h4>
                                     <p>Jl. Rumahnya yudha atau rumah widdy, Ciputat Timur, Tangerang Selatan, 15416</p>
                                     <a class="btn-buka-hadiah" href="https://maps.app.goo.gl/1ngW2q2tyRhXmPrC7">Buka Maps</a>
                                 </div>
@@ -274,20 +279,20 @@ Tangerang Selatan</p>
                         // Buka modal saat tombol diklik
                         openModalBtn.addEventListener("click", () => {
                             modal.style.opacity = "1";
-                            modal.style.bottom = "-20vh";
+                            modal.style.zIndex = "100";
                         });
 
                         // Tutup modal saat tombol close diklik
                         closeModalBtn.addEventListener("click", () => {
                             modal.style.opacity = "0";
-                            modal.style.bottom = "-100vh";
+                            modal.style.zIndex = "-1";
                         });
 
                         // Tutup modal saat klik di luar modal content
                         window.addEventListener("click", (e) => {
                             if (e.target === modal) {
                                 modal.style.opacity = "0";
-                                modal.style.bottom = "-100vh";
+                                modal.style.zIndex = "-1";
                             }
                         });
 
@@ -309,7 +314,7 @@ Tangerang Selatan</p>
                         <option value="Belum Pasti">Belum Pasti</option>
                     </select>
                     <input type="hidden" name="user_id" value="<?=$data['id']?>">
-                    <button class="btn-kirim-ucapan" type="submit" id="submitComment"><img style="width: 40px; margin-right: 10px;" src="<?=base_url()?>assets/img/send.png"></button>
+                    <button class="btn-kirim-ucapan" type="submit" id="submitComment"><img class="img-btn-ucapan" src="<?=base_url()?>assets/img/send.png"></button>
                 </form>
             </div>
             <hr>
@@ -596,6 +601,21 @@ Tangerang Selatan</p>
 
         setInterval(updateCountdown, 1000);
         updateCountdown(); // Jalankan saat pertama kali
+
+        function copyToClipboard() {
+            let textInput = document.getElementById("textToCopy");
+            let copyButton = document.getElementById("copyButton");
+
+            // Menyalin teks ke clipboard
+            navigator.clipboard.writeText(textInput.value).then(() => {
+                // Mengubah tombol menjadi <p>Copied!</p>
+                let copiedMessage = document.createElement("p");
+                copiedMessage.textContent = "Copied!";
+                copyButton.replaceWith(copiedMessage);
+            }).catch(err => {
+                console.error("Gagal menyalin teks: ", err);
+            });
+        }
     </script>
     <script>
         function sha1(str) {
