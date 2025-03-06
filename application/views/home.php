@@ -116,7 +116,7 @@
         </div>
         <!-- Services-->
         <section class="content-section text-center agenda" id="services">
-            <div class="container px-4 px-lg-5">
+            <div class="container cont-agenda">
                 <div class="agenda-heading">
                     <h3 class="agenda-title">Save</h3>
                     <h2 class="tgl-title">The Date</h2>
@@ -136,6 +136,7 @@
                             <div class="col-3" id="detik">
                             </div>
                         </div>
+                        <img class="dahan2" src="<?=base_url()?>assets/img/dahan2.png" data-aos="zoom-in" data-aos-duration="1000">
                     </div>
                     <div class="akad col-6" data-aos="zoom-in" data-aos-duration="1000">
                         <img src="<?=base_url()?>assets/img/rings.png">
@@ -171,20 +172,14 @@ Tangerang Selatan</p>
                 <div class="col-12" data-aos="zoom-in" data-aos-duration="1500">
                     <img src="<?=base_url('assets/img/gallery/gal2.png')?>" class="img-thumbnail-yw head" onclick="openModal(this)">
                 </div>
+                <div class="col-6" data-aos="zoom-in" data-aos-duration="1500">
+                    <img src="<?=base_url('assets/img/gallery/gal5.png')?>" class="img-thumbnail-yw" onclick="openModal(this)">
+                </div>
+                <div class="col-6" data-aos="zoom-in" data-aos-duration="1500">
+                    <img src="<?=base_url('assets/img/gallery/gal6.png')?>" class="img-thumbnail-yw" onclick="openModal(this)">
+                </div>
                 <div class="col-12" data-aos="zoom-in" data-aos-duration="1500">
                     <img src="<?=base_url('assets/img/gallery/gal4.png')?>" class="img-thumbnail-yw head" onclick="openModal(this)">
-                </div>
-                <div class="col-6" data-aos="zoom-in" data-aos-duration="1500">
-                    <img src="<?=base_url('assets/img/gallery/gal5.png')?>" class="img-thumbnail-yw" onclick="openModal(this)">
-                </div>
-                <div class="col-6" data-aos="zoom-in" data-aos-duration="1500">
-                    <img src="<?=base_url('assets/img/gallery/gal6.png')?>" class="img-thumbnail-yw" onclick="openModal(this)">
-                </div>
-                <div class="col-6" data-aos="zoom-in" data-aos-duration="1500">
-                    <img src="<?=base_url('assets/img/gallery/gal5.png')?>" class="img-thumbnail-yw" onclick="openModal(this)">
-                </div>
-                <div class="col-6" data-aos="zoom-in" data-aos-duration="1500">
-                    <img src="<?=base_url('assets/img/gallery/gal6.png')?>" class="img-thumbnail-yw" onclick="openModal(this)">
                 </div>
             </div>
         </div>
@@ -223,22 +218,19 @@ Tangerang Selatan</p>
                 </div>
             </div>
         </div>
-        <!-- Footer-->
-        <div class="footer text-center">
-            <div class="glass-bg">
-                <div class="ty-heading">
-                    <h6 class="terima-title">Wedding</h6>
-                    <h6 class="kasih-title">Gift</h6>
+        <div class="glass-bg">
+            <div class="ty-heading">
+                <h6 class="terima-title">Wedding</h6>
+                <h6 class="kasih-title">Gift</h6>
+            </div>
+
+            <img class="dahan1" src="<?=base_url()?>assets/img/dahan.png" data-aos="zoom-in" data-aos-duration="1500">
+            <div class="row">
+                <div class="col-12 notes-hadiah" data-aos="zoom-in" data-aos-duration="1500">
+                    <p>Terima kasih telah menambah semangat kegembiraan pernikahan kami dengan kehadiran dan hadiah indah Anda.</p>
                 </div>
-                <div class="row">
-                    <div class="col-6 notes-hadiah" data-aos="zoom-in" data-aos-duration="1500">
-                        <p>Terima kasih telah menambah semangat kegembiraan pernikahan kami dengan kehadiran dan hadiah indah Anda.</p>
-                    </div>
-                    <div class="col-6 icon-hadiah"  data-aos="zoom-in" data-aos-duration="1500">
-                        <div class="circle-img" id="openModal">
-                            <img src="<?=base_url('assets/img/gift.png')?>">
-                        </div>
-                    </div>
+                <div class="col-12 icon-hadiah"  data-aos="zoom-in" data-aos-duration="1500">
+                    <button id="openModal" class="btn-wd-gift">Kirim Hadiah</button>
                 </div>
             </div>
         </div>
@@ -300,8 +292,8 @@ Tangerang Selatan</p>
         <!-- Portfolio-->
         <div class="container-komen">
             <div class="form-komentar">
-                <h6 class="form-title">Doa</h6>
-                <h6 class="komentar-title">Kehadiran</h6>
+                <h6 class="form-title">RSVP</h6>
+                <h6 class="komentar-title">Wishes</h6>
             </div>
             <div class="container-form" data-aos="zoom-in" data-aos-duration="1500">
                 <form id="commentForm" action="<?= base_url('Home/submit_comment'); ?>" method="post">
@@ -353,7 +345,7 @@ Tangerang Selatan</p>
         
         <!-- Footer-->
         <div class="footer text-center">
-            <div class="glass-bg">
+            <div class="glass-bg2">
                 <div class="pba col-12">
                     <p>Merupakan suatu kehormatan dan
                         kebahagiaan bagi kami apabila
