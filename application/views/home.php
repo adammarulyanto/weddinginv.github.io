@@ -18,7 +18,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
         <link href="css/styles.css" rel="stylesheet"/>
-        <link href="css/style2.css?v=2" rel="stylesheet"/>
+        <link href="css/style2.css?v=3" rel="stylesheet"/>
         <link href='https://fonts.googleapis.com/css?family=Allison' rel='stylesheet'>
 		<link href='https://fonts.googleapis.com/css?family=Montserrat Alternates' rel='stylesheet'>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
