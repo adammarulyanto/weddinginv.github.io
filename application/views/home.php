@@ -136,7 +136,9 @@
                             <div class="col-3" id="detik">
                             </div>
                         </div>
-                        <img class="dahan2" src="<?=base_url()?>assets/img/dahan2.png" data-aos="zoom-in" data-aos-duration="1000">
+                        <div class="cont-dahan2">
+                            <img class="dahan2" src="<?=base_url()?>assets/img/dahan2.png" data-aos="zoom-in" data-aos-duration="1000">
+                        </div>
                     </div>
                     <div class="akad col-6" data-aos="zoom-in" data-aos-duration="1000">
                         <img src="<?=base_url()?>assets/img/rings.png">
@@ -218,82 +220,15 @@ Tangerang Selatan</p>
                 </div>
             </div>
         </div>
-        <div class="glass-bg">
-            <div class="ty-heading">
-                <h6 class="terima-title">Wedding</h6>
-                <h6 class="kasih-title">Gift</h6>
-            </div>
-
-            <img class="dahan1" src="<?=base_url()?>assets/img/dahan.png" data-aos="zoom-in" data-aos-duration="1500">
-            <div class="row">
-                <div class="col-12 notes-hadiah" data-aos="zoom-in" data-aos-duration="1500">
-                    <p>Terima kasih telah menambah semangat kegembiraan pernikahan kami dengan kehadiran dan hadiah indah Anda.</p>
-                </div>
-                <div class="col-12 icon-hadiah"  data-aos="zoom-in" data-aos-duration="1500">
-                    <button id="openModal" class="btn-wd-gift">Kirim Hadiah</button>
-                </div>
-            </div>
-        </div>
-                    <div id="hadiahModal" class="modal-hadiah">
-                        <div class="modal-hadiah-content modal-dialog-centered">
-                            <span class="close-hadiah-btn">&times;</span>
-                            <div class="row detail-hadiah">
-                                <div class="col-12">
-                                    <h4>Cashless</h4>
-                                    <div class="debit-card">
-                                        <img src="https://i0.wp.com/americassbdc.org/wp-content/uploads/2021/05/Visa-logo-white.png?fit=900%2C291&ssl=1" alt="Bank Logo" class="bank-logo">
-                                        <div class="bank-name"><img src="https://www.bca.co.id/-/media/Files/2023/bangga-lokal/web/images/logo-bca-white.svg" class="bank-logo2"></div>
-                                        <div class="copy-container">
-                                            <div class="card-number">5435051267</div>
-                                            <input type="hidden" id="textToCopy" value="5435051267">
-                                            <button id="copyButton" onclick="copyToClipboard()"><i class="fa-regular fa-copy"></i></button>
-                                        </div>
-                                        <div class="card-holder">ADAM MARULYANTO</div>
-                                        <!-- <div class="expiry">VALID THRU 12/28</div> -->
-                                    </div>
-
-                                </div>
-                                <hr>
-                                <div class="col-12 alamat-hadiah">
-                                    <h4>Wedding Gift</h4>
-                                    <p>Jl. Rumahnya yudha atau rumah widdy, Ciputat Timur, Tangerang Selatan, 15416</p>
-                                    <a class="btn-buka-hadiah" href="https://maps.app.goo.gl/1ngW2q2tyRhXmPrC7">Buka Maps</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <script>
-                        // Ambil elemen modal
-                        const modal = document.getElementById("hadiahModal");
-                        const openModalBtn = document.getElementById("openModal");
-                        const closeModalBtn = document.querySelector(".close-hadiah-btn");
-
-                        // Buka modal saat tombol diklik
-                        openModalBtn.addEventListener("click", () => {
-                            modal.style.opacity = "1";
-                            modal.style.zIndex = "100";
-                        });
-
-                        // Tutup modal saat tombol close diklik
-                        closeModalBtn.addEventListener("click", () => {
-                            modal.style.opacity = "0";
-                            modal.style.zIndex = "-1";
-                        });
-
-                        // Tutup modal saat klik di luar modal content
-                        window.addEventListener("click", (e) => {
-                            if (e.target === modal) {
-                                modal.style.opacity = "0";
-                                modal.style.zIndex = "-1";
-                            }
-                        });
-
-                    </script>
         <!-- Portfolio-->
         <div class="container-komen">
             <div class="form-komentar">
                 <h6 class="form-title">RSVP</h6>
                 <h6 class="komentar-title">Wishes</h6>
+            </div>
+
+            <div class="cont-dahan1">
+                <img class="dahan1" src="<?=base_url()?>assets/img/dahan.png" data-aos="zoom-in" data-aos-duration="1500">
             </div>
             <div class="container-form" data-aos="zoom-in" data-aos-duration="1500">
                 <form id="commentForm" action="<?= base_url('Home/submit_comment'); ?>" method="post">
@@ -342,6 +277,88 @@ Tangerang Selatan</p>
             </script>
 
         </div>
+        <div class="glass-bg">
+            <div class="ty-heading">
+                <h6 class="terima-title">Wedding</h6>
+                <h6 class="kasih-title">Gift</h6>
+            </div>
+
+            <div class="row">
+                <div class="col-12 notes-hadiah" data-aos="zoom-in" data-aos-duration="1500">
+                    <p>Terima kasih telah menambah semangat kegembiraan pernikahan kami dengan kehadiran dan hadiah indah Anda.</p>
+                </div>
+                <div class="col-12 icon-hadiah"  data-aos="zoom-in" data-aos-duration="1500">
+                    <button id="openModal" class="btn-wd-gift">Kirim Hadiah</button>
+                </div>
+            </div>
+        </div>
+                    <div id="hadiahModal" class="modal-hadiah">
+                        <div class="modal-hadiah-content modal-dialog-centered">
+                            <span class="close-hadiah-btn">&times;</span>
+                            <div class="row detail-hadiah">
+                                <h4>Cashless</h4>
+                                <div class="cont-debit-card">
+                                    <div class="cont-scroll-card">
+                                        <div class="debit-card">
+                                            <img src="https://i0.wp.com/americassbdc.org/wp-content/uploads/2021/05/Visa-logo-white.png?fit=900%2C291&ssl=1" alt="Bank Logo" class="bank-logo">
+                                            <div class="bank-name"><img src="https://www.bca.co.id/-/media/Files/2023/bangga-lokal/web/images/logo-bca-white.svg" class="bank-logo2"></div>
+                                            <div class="copy-container">
+                                                <div class="card-number">5435051267</div>
+                                                <input type="hidden" id="textToCopy" value="5435051267">
+                                                <button id="copyButton" onclick="copyToClipboard()"><i class="fa-regular fa-copy"></i></button>
+                                            </div>
+                                            <div class="card-holder">ADAM MARULYANTO</div>
+                                            <!-- <div class="expiry">VALID THRU 12/28</div> -->
+                                        </div>
+                                        <div class="debit-card">
+                                            <img src="https://i0.wp.com/americassbdc.org/wp-content/uploads/2021/05/Visa-logo-white.png?fit=900%2C291&ssl=1" alt="Bank Logo" class="bank-logo">
+                                            <div class="bank-name"><img src="https://www.bca.co.id/-/media/Files/2023/bangga-lokal/web/images/logo-bca-white.svg" class="bank-logo2"></div>
+                                            <div class="copy-container">
+                                                <div class="card-number">5435051267</div>
+                                                <input type="hidden" id="textToCopy" value="5435051267">
+                                                <button id="copyButton" onclick="copyToClipboard()"><i class="fa-regular fa-copy"></i></button>
+                                            </div>
+                                            <div class="card-holder">ADAM MARULYANTO</div>
+                                            <!-- <div class="expiry">VALID THRU 12/28</div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="col-12 alamat-hadiah">
+                                    <h4>Wedding Gift</h4>
+                                    <p>Jl. Rumahnya yudha atau rumah widdy, Ciputat Timur, Tangerang Selatan, 15416</p>
+                                    <a class="btn-buka-hadiah" href="https://maps.app.goo.gl/1ngW2q2tyRhXmPrC7">Buka Maps</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        // Ambil elemen modal
+                        const modal = document.getElementById("hadiahModal");
+                        const openModalBtn = document.getElementById("openModal");
+                        const closeModalBtn = document.querySelector(".close-hadiah-btn");
+
+                        // Buka modal saat tombol diklik
+                        openModalBtn.addEventListener("click", () => {
+                            modal.style.opacity = "1";
+                            modal.style.zIndex = "100";
+                        });
+
+                        // Tutup modal saat tombol close diklik
+                        closeModalBtn.addEventListener("click", () => {
+                            modal.style.opacity = "0";
+                            modal.style.zIndex = "-1";
+                        });
+
+                        // Tutup modal saat klik di luar modal content
+                        window.addEventListener("click", (e) => {
+                            if (e.target === modal) {
+                                modal.style.opacity = "0";
+                                modal.style.zIndex = "-1";
+                            }
+                        });
+
+                    </script>
         
         <!-- Footer-->
         <div class="footer text-center">
