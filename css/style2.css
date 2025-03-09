@@ -663,12 +663,12 @@ body{
 	margin: 10px 0 0 0;
 }
 .siyudha-f{
-	font-size: 40pt;
+	font-size: 50pt;
 	font-weight: normal;
 	left: 0;
 }
 .dan-icon-f{
-	font-size: 80pt;
+	font-size: 90pt;
 	font-weight: normal;
 	position: absolute;
 	left: 50%;
@@ -1052,7 +1052,7 @@ body{
 }
 .glass-bg2 {
 	padding: 100px 50px;
-    background: rgba(255, 255, 255, 0.2); /* Transparent white */
+    background: rgba(0, 0, 0, 0.5); /* Transparent white */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
     backdrop-filter: blur(10px); /* Blur effect */
     -webkit-backdrop-filter: blur(10px); /* Safari support */
@@ -1172,4 +1172,20 @@ body{
 #hari p, #jam p, #menit p, #detik p{
 	font-size: 15px;
 	margin: 0;
+}
+
+.pesan-footer{
+	width: 70%;
+  	font-family: "Montserrat", serif;
+	margin: 0 auto;
+	line-height: 2;
+	margin-bottom: 80px;
+}
+.pesan-dibuat{
+	width: 70%;
+  	font-family: "Montserrat", serif;
+	margin: 0 auto;
+	margin-top: 80px;
+	opacity: 0.7;
+	font-size: 13px;
 }

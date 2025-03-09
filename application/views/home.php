@@ -364,19 +364,19 @@ Tangerang Selatan</p>
         <div class="footer text-center">
             <div class="glass-bg2">
                 <div class="pba col-12">
-                    <p>Merupakan suatu kehormatan dan
+                    <p class="pesan-footer">"Merupakan suatu kehormatan dan
                         kebahagiaan bagi kami apabila
                         Bapak/Ibu/Saudara/i berkenan hadir
                         untuk memberikan do’a restu.
                         Atas kehadiran dan do’a restunya
                         kami ucapkan terima kasih.
-                        Kami yang berbahagia.</p>
+                        Kami yang berbahagia."</p>
                 </div>
                 <div class="cont-berdua-footer">
                     <h5 class="siyudha-f">Yudha  Widdy</h5>
                     <span class="dan-icon-f">&</span>
                 </div>
-                <p>Copyright &copy; Yudha <3 Widdy 2025</p>
+                <p class="pesan-dibuat">Undangan Dibuat dengan cinta untuk merayakan perjalanan Sahabat kami Yudha & Widdy. <br>&copy; 2025</p>
             </div>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>

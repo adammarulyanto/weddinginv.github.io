@@ -25,7 +25,7 @@ date_default_timezone_set('Asia/Jakarta');
 |
 */
 // $config['base_url'] = 'http://localhost/wedding/';
-$config['base_url'] = 'https://yudhawiddy.site';
+$config['base_url'] = 'https://yudhawiddy.site'; 
 
 /*
 |--------------------------------------------------------------------------

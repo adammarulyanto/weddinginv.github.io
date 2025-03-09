@@ -41,8 +41,6 @@
 
             <!-- Main Content -->
             <div id="content">
-
-                
                 <?php 
                     include('topbar.php');
                 ?>
@@ -53,9 +51,8 @@
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">List Undangan</h1>
-                    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-                        For more information about DataTables, please visit the <a target="_blank"
-                            href="https://datatables.net">official DataTables documentation</a>.</p>
+                    <p class="mb-4">Kalo mau ubah datanya, ke link ini <a target="_blank"
+                            href="https://docs.google.com/spreadsheets/d/1qwhMRrixcXCFhM1_E1GLvk6KbCUtSX1tDcZOlUylh8M/edit?gid=0#gid=0">Template Data</a>, terus download as Excel, baru klik tombol dibawah Change Data.</p>
                     <a href="#" class="btn btn-success btn-icon-split mb-4" data-bs-toggle="modal" data-bs-target="#uploadModal">
                         <span class="icon text-white-50">
                             <i class="fa fa-file-excel"></i>
@@ -115,7 +112,19 @@
                                         <?php foreach ($users as $user) : 
                                         $nomor = $user['wa']; // Pastikan hanya angka
                                         $encoded_link = base_url()."?to=".rawurlencode($user['nama']); // Encoding untuk URL
-                                        $pesan = "Halo ".$user['nama'].", Dateng ya! Terima kasih ".$encoded_link;
+                                        $pesan = "Kepada Yth.\n".
+                                                 "Bapak/Ibu/Saudara/i\n".
+                                                 $user['nama']."\n".
+                                                 "di tempat\n\n".
+                                                 "Assalamu'alaikum Warahmatullahi Wabarakatuh\n\n".
+                                                 "Tanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i, untuk menghadiri acara Resepsi Pernikahan Kami\n\n".
+                                                 "Info lebih lengkap klik link dibawah ini\n".
+                                                 $encoded_link."\n\n".
+                                                 "Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan untuk hadir dan memberikan doa restu.\n\n".
+                                                 "Wassalamu'alaikum Warahmatullahi Wabarakatuh\n\n".
+                                                 "Kami yang berbahagia\n".
+                                                 "Keluarga Kedua Mempelai\n\n".
+                                                 "Mohon maaf perihal undangan hanya dibagikan melalui pesan ini.";
                                         $wa_link = "https://wa.me/{$nomor}?text=" . urlencode($pesan);
                                         ?>   
                                         <tr>
@@ -179,26 +188,6 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <script>
         $("#uploadForm").submit(function(e) {

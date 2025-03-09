@@ -24,6 +24,12 @@ class Admin extends CI_Controller {
 
 	public function __construct() {
 	    parent::__construct();
+        $this->load->library('session');
+        // Cek apakah user sudah login
+        if (!$this->session->userdata('logged_in')) {
+            redirect('login'); // Jika belum login, redirect ke halaman login
+        }
+        
 	    $this->load->model('AdminModel'); // Load model User_model
 	    $this->load->model('ExcelModel'); // Load model User_model
         $this->load->library('upload');
