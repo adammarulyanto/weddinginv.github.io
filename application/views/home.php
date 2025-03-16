@@ -166,6 +166,9 @@ Tangerang Selatan</p>
         </section>
         <!-- Callout-->
         <div class="container-gallery">
+            <div class="cont-bunga1">
+                <img class="bunga1" src="<?=base_url()?>assets/img/dahan.png">
+            </div>
             <div class="gallery-heading">
                 <h6 class="gallery-title">Our</h6>
                 <h6 class="fkami-title">Gallery</h6>
@@ -228,7 +231,7 @@ Tangerang Selatan</p>
             </div>
 
             <div class="cont-dahan1">
-                <img class="dahan1" src="<?=base_url()?>assets/img/dahan.png" data-aos="zoom-in" data-aos-duration="1500">
+                <img class="dahan1" src="<?=base_url()?>assets/img/dahan.png" >
             </div>
             <div class="container-form" data-aos="zoom-in" data-aos-duration="1500">
                 <form id="commentForm" action="<?= base_url('Home/submit_comment'); ?>" method="post">
@@ -278,7 +281,7 @@ Tangerang Selatan</p>
 
         </div>
         <div class="glass-bg">
-            <div class="ty-heading">
+            <div class="ty-heading" data-aos="zoom-in" data-aos-duration="1500">
                 <h6 class="terima-title">Wedding</h6>
                 <h6 class="kasih-title">Gift</h6>
             </div>
@@ -305,7 +308,7 @@ Tangerang Selatan</p>
                                             <div class="copy-container">
                                                 <div class="card-number">5435051267</div>
                                                 <input type="hidden" id="textToCopy" value="5435051267">
-                                                <button id="copyButton" onclick="copyToClipboard()"><i class="fa-regular fa-copy"></i></button>
+                                                <button id="copyButton" onclick="copyToClipboard(this)"><i class="fa-regular fa-copy"></i></button>
                                             </div>
                                             <div class="card-holder">ADAM MARULYANTO</div>
                                             <!-- <div class="expiry">VALID THRU 12/28</div> -->
@@ -314,9 +317,9 @@ Tangerang Selatan</p>
                                             <img src="https://i0.wp.com/americassbdc.org/wp-content/uploads/2021/05/Visa-logo-white.png?fit=900%2C291&ssl=1" alt="Bank Logo" class="bank-logo">
                                             <div class="bank-name"><img src="https://www.bca.co.id/-/media/Files/2023/bangga-lokal/web/images/logo-bca-white.svg" class="bank-logo2"></div>
                                             <div class="copy-container">
-                                                <div class="card-number">5435051267</div>
-                                                <input type="hidden" id="textToCopy" value="5435051267">
-                                                <button id="copyButton" onclick="copyToClipboard()"><i class="fa-regular fa-copy"></i></button>
+                                                <div class="card-number">54350512673</div>
+                                                <input type="hidden" id="textToCopy2" value="54350512673">
+                                                <button id="copyButton" onclick="copyToClipboard(this)"><i class="fa-regular fa-copy"></i></button>
                                             </div>
                                             <div class="card-holder">ADAM MARULYANTO</div>
                                             <!-- <div class="expiry">VALID THRU 12/28</div> -->
@@ -362,21 +365,23 @@ Tangerang Selatan</p>
         
         <!-- Footer-->
         <div class="footer text-center">
-            <div class="glass-bg2">
-                <div class="pba col-12">
-                    <p class="pesan-footer">"Merupakan suatu kehormatan dan
-                        kebahagiaan bagi kami apabila
-                        Bapak/Ibu/Saudara/i berkenan hadir
-                        untuk memberikan do’a restu.
-                        Atas kehadiran dan do’a restunya
-                        kami ucapkan terima kasih.
-                        Kami yang berbahagia."</p>
+            <div class="bg-glass-one">
+                <div class="glass-bg2">
+                    <div class="pba col-12">
+                        <p class="pesan-footer">"Merupakan suatu kehormatan dan
+                            kebahagiaan bagi kami apabila
+                            Bapak/Ibu/Saudara/i berkenan hadir
+                            untuk memberikan do’a restu.
+                            Atas kehadiran dan do’a restunya
+                            kami ucapkan terima kasih.
+                            Kami yang berbahagia."</p>
+                    </div>
+                    <div class="cont-berdua-footer">
+                        <h5 class="siyudha-f">Yudha  Widdy</h5>
+                        <span class="dan-icon-f">&</span>
+                    </div>
+                    <p class="pesan-dibuat">Undangan Dibuat dengan cinta untuk merayakan perjalanan Sahabat kami Yudha & Widdy. <br>&copy; 2025</p>
                 </div>
-                <div class="cont-berdua-footer">
-                    <h5 class="siyudha-f">Yudha  Widdy</h5>
-                    <span class="dan-icon-f">&</span>
-                </div>
-                <p class="pesan-dibuat">Undangan Dibuat dengan cinta untuk merayakan perjalanan Sahabat kami Yudha & Widdy. <br>&copy; 2025</p>
             </div>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
@@ -611,20 +616,22 @@ Tangerang Selatan</p>
         setInterval(updateCountdown, 1000);
         updateCountdown(); // Jalankan saat pertama kali
 
-        function copyToClipboard() {
-            let textInput = document.getElementById("textToCopy");
-            let copyButton = document.getElementById("copyButton");
+        function copyToClipboard(button) {
+            let copyContainer = button.closest(".copy-container"); // Ambil parent container
+            let textInput = copyContainer.querySelector("input[type='hidden']"); // Cari input dalam container
 
-            // Menyalin teks ke clipboard
-            navigator.clipboard.writeText(textInput.value).then(() => {
-                // Mengubah tombol menjadi <p>Copied!</p>
-                let copiedMessage = document.createElement("p");
-                copiedMessage.textContent = "Copied!";
-                copyButton.replaceWith(copiedMessage);
-            }).catch(err => {
-                console.error("Gagal menyalin teks: ", err);
-            });
+            if (textInput) {
+                navigator.clipboard.writeText(textInput.value).then(() => {
+                    // Ubah tombol menjadi teks "Copied!"
+                    let copiedMessage = document.createElement("p");
+                    copiedMessage.textContent = "Copied!";
+                    button.replaceWith(copiedMessage);
+                }).catch(err => {
+                    console.error("Gagal menyalin teks: ", err);
+                });
+            }
         }
+
     </script>
     <script>
         function sha1(str) {
@@ -662,8 +669,8 @@ Tangerang Selatan</p>
                             }
 
                             div.classList.add("comment");
-                            div.setAttribute("data-aos", "zoom-in");
-                            div.setAttribute("data-aos-duration", "1500");
+                            // div.setAttribute("data-aos", "zoom-in");
+                            // div.setAttribute("data-aos-duration", "1500");
 
                             // Hashing SHA1( SHA1(id) ) di JavaScript (butuh library)
 
@@ -713,6 +720,26 @@ Tangerang Selatan</p>
                 setTimeout(loadComments, 1000); // Refresh komentar setelah submit
             });
         });
+    </script>
+
+    <script>
+        let tinggiLayar= window.innerHeight
+        let headerHeight = document.getElementById('about').offsetHeight;
+        let contentHeight = document.getElementById('cont-scroll').offsetHeight;
+        let contentStart = tinggiLayar+(headerHeight*0.7);
+        let contentEnd = tinggiLayar+contentStart + (contentHeight*0.7);
+        let step = 150;
+
+        window.addEventListener('wheel', function(event) {
+            let currentScroll = window.scrollY;
+            let direction = event.deltaY > 0 ? 1 : -1;
+            
+            if (currentScroll >= contentStart && currentScroll < contentEnd) {
+                event.preventDefault();
+                let nextScroll = Math.round((currentScroll + step * direction) / step) * step;
+                window.scrollTo({ top: nextScroll, behavior: 'smooth' });
+            }
+        }, { passive: false });
     </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

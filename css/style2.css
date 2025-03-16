@@ -289,6 +289,7 @@ body{
 	max-width: 500px;
 	overflow: hidden;
 	margin-top: -1px;
+	position: relative;
 }
 .notes-hadiah{
 	margin-top: -30px;
@@ -351,6 +352,7 @@ body{
 .agenda{
 	background-color: #FEFEFE;
 	z-index: -1;
+	padding-bottom: 50px;
 }
 .agenda-heading{
 	position: relative;
@@ -534,6 +536,24 @@ body{
 	width: 60%;
 	animation: sway2 2s infinite ease-in-out alternate;
 	z-index: -1;
+}
+.cont-bunga1{
+	position: absolute;
+	right: 0;
+	top: -20px;
+	width: 200px;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	z-index: 1;
+	transform: scaleX(-1);
+}
+.bunga1{
+	position: absolute;
+	width: 100%;
+	animation: sway2 2s infinite ease-in-out alternate;
+	right: 10px;
 }
 .btn-add-calendar{
 	margin-top: 50px;
@@ -1052,15 +1072,19 @@ body{
 }
 .glass-bg2 {
 	padding: 100px 50px;
-    background: rgba(0, 0, 0, 0.5); /* Transparent white */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
-    backdrop-filter: blur(10px); /* Blur effect */
-    -webkit-backdrop-filter: blur(10px); /* Safari support */
     width: 100%;
-    height: 100%;
     align-items: center;
     text-align: center;
     color: #FEFEFE;
+}
+.bg-glass-one{
+    background: rgba(0, 0, 0, 0.5); /* Transparent white */
+    backdrop-filter: blur(10px); /* Blur effect */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    height: 100%; 
+    display: flex;
+    justify-content: center; /* Pusat secara horizontal */
+    align-items: center; /* Pusat secara vertikal */
 }
 .glass-bg p{
 	font-size: 20px;
@@ -1175,11 +1199,12 @@ body{
 }
 
 .pesan-footer{
-	width: 70%;
+	width: 80%;
   	font-family: "Montserrat", serif;
 	margin: 0 auto;
 	line-height: 2;
 	margin-bottom: 80px;
+	font-size: 12pt;
 }
 .pesan-dibuat{
 	width: 70%;
