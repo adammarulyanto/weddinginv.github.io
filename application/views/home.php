@@ -728,17 +728,32 @@ Tangerang Selatan</p>
         let contentHeight = document.getElementById('cont-scroll').offsetHeight;
         let contentStart = tinggiLayar+(headerHeight*0.7);
         let contentEnd = tinggiLayar+contentStart + (contentHeight*0.7);
-        let step = 150;
+        let step = 100;
+        let touchStartY = 0;
 
-        window.addEventListener('wheel', function(event) {
+        function handleScroll(event, deltaY) {
             let currentScroll = window.scrollY;
-            let direction = event.deltaY > 0 ? 1 : -1;
+            let direction = deltaY > 0 ? 1 : -1;
             
             if (currentScroll >= contentStart && currentScroll < contentEnd) {
                 event.preventDefault();
                 let nextScroll = Math.round((currentScroll + step * direction) / step) * step;
                 window.scrollTo({ top: nextScroll, behavior: 'smooth' });
             }
+        }
+        
+        window.addEventListener('wheel', function(event) {
+            handleScroll(event, event.deltaY);
+        }, { passive: false });
+
+        window.addEventListener('touchstart', function(event) {
+            touchStartY = event.touches[0].clientY;
+        });
+
+        window.addEventListener('touchmove', function(event) {
+            let touchEndY = event.touches[0].clientY;
+            let deltaY = touchStartY - touchEndY;
+            handleScroll(event, deltaY);
         }, { passive: false });
     </script>
 
