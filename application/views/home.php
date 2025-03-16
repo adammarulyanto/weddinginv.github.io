@@ -728,7 +728,7 @@ Tangerang Selatan</p>
         let contentHeight = document.getElementById('cont-scroll').offsetHeight;
         let contentStart = tinggiLayar+(headerHeight*0.7);
         let contentEnd = tinggiLayar+contentStart + (contentHeight*0.7);
-        let step = 200;
+        let step = 400;
         let touchStartY = 0;
 
         function handleScroll(event, deltaY) {
