@@ -18,7 +18,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
         <link href="css/styles.css" rel="stylesheet"/>
-        <link href="css/style2.css?v=6" rel="stylesheet"/>
+        <link href="css/style2.css?v=7" rel="stylesheet"/>
         <link href='https://fonts.googleapis.com/css?family=Allison' rel='stylesheet'>
 		<link href='https://fonts.googleapis.com/css?family=Montserrat Alternates' rel='stylesheet'>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -101,7 +101,7 @@
         		<div class="yudha-section" id="yudha">
 		        	<div class="yudha"><p>Yudha</p></div>
 		        	<div class="pratama"><p>Pratama</p></div>
-		        	<div class="putra" id="putra"><p>Putra Pertama dari Bapak Cecep Cupriadi dan Ibu Iis Ratna Sari</p></div>
+		        	<div class="putra" id="putra"><p>Putra Pertama dari Bapak Cecep Supriadi dan Ibu Iis Ratna Sari</p></div>
 		        	<div class="groom" id="groom"><p>Groom</p></div>
         		</div>
 	        	<div class="widdy-section" id="widdy">
@@ -178,10 +178,10 @@
                     <img src="<?=base_url('assets/img/gallery/1.jpg')?>" class="img-thumbnail-yw head" onclick="openModal(this)">
                 </div>
                 <div class="col-6" data-aos="zoom-in" data-aos-duration="1500">
-                    <img src="<?=base_url('assets/img/gallery/3.jpg')?>" class="img-thumbnail-yw" onclick="openModal(this)">
+                    <img src="<?=base_url('assets/img/gallery/3.png')?>" class="img-thumbnail-yw" onclick="openModal(this)">
                 </div>
                 <div class="col-6" data-aos="zoom-in" data-aos-duration="1500">
-                    <img src="<?=base_url('assets/img/gallery/4.jpg')?>" class="img-thumbnail-yw" onclick="openModal(this)">
+                    <img src="<?=base_url('assets/img/gallery/4.png')?>" class="img-thumbnail-yw" onclick="openModal(this)">
                 </div>
                 <div class="col-12" data-aos="zoom-in" data-aos-duration="1500">
                     <img src="<?=base_url('assets/img/gallery/2.jpg')?>" class="img-thumbnail-yw head" onclick="openModal(this)">
@@ -330,7 +330,7 @@
                                 <div class="col-12 alamat-hadiah">
                                     <h4>Wedding Gift</h4>
                                     <p>Jalan Betawi No.108, RT.3/RW.9, Kp Gunung Kalimati, Jombang ( Dekat Pohon Beringin ), Ciputat, Kota Tangerang Selatan, Banten, 15411</p>
-                                    <a target="_blank" class="btn-buka-hadiah" href="https://maps.app.goo.gl/cUb2RyVsam7kr2eK9">Buka Maps</a>
+                                    <a target="_blank" class="btn-buka-hadiah" href="https://maps.app.goo.gl/9tDr7s4WikQMrg3H8">Buka Maps</a>
                                 </div>
                             </div>
                         </div>
