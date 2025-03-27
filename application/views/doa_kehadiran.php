@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Tables</title>
+    <title>Y&W - RSVP</title>
 
     <!-- Custom fonts for this template -->
     <link href="<?=base_url()?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -65,17 +65,10 @@
                                             <th>Name</th>
                                             <th>Doa/Pesan</th>
                                             <th>Kehadiran</th>
-                                            <th>Created at</th>
+                                            <th>Comment at</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Doa/Pesan</th>
-                                            <th>Kehadiran</th>
-                                            <th>Created at</th>
-                                        </tr>
-                                    </tfoot>
                                     <tbody>
                                         <?php foreach ($comments as $comment) : ?>
                                         <tr>
@@ -83,6 +76,15 @@
                                             <td><?= $comment['message']; ?></td>
                                             <td><?= $comment['attendance']; ?></td>
                                             <td><?= $comment['created_at']; ?></td>
+                                            <td>
+                                                <!-- <a href="#" data-toggle="modal" data-target="#delModalRsvp" class="btn btn-danger btn-circle">
+                                                    <i class="fas fa-trash"></i> -->
+                                                <a href="<?= base_url('admin/del_rsvp/' . $comment['id']); ?>" 
+                                                   class="btn btn-danger btn-circle" 
+                                                   onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </a></td>
                                         </tr>
                                         <?php endforeach; ?>
                                     </tbody>

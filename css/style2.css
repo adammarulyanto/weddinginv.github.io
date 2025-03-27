@@ -83,7 +83,18 @@ body{
         display: none;
     }
 
-
+.gallery img {
+        width: 100%; /* Lebar penuh */
+        aspect-ratio: 1 / 1; /* Rasio 1:1 */
+        object-fit: cover; /* Memotong gambar agar tetap sesuai */
+    }
+    
+/* Untuk memastikan gambar selalu terpusat */
+.gallery .col-6, .gallery .col-12 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .alamat-hadiah p {
 	font-size: 15px;
 }
@@ -1100,7 +1111,7 @@ body{
     display: none; /* Untuk Chrome, Safari, dan Opera */
 }
 .cont-scroll-card{
-	width: 700px;
+	width: 1000px;
 }
 .cont-dahan1{
 	position: absolute;

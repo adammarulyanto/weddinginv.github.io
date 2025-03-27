@@ -36,12 +36,15 @@ class Admin extends CI_Controller {
     }
 	public function index()
 	{
-		$this->load->view('admin');
+		$data['comments'] = $this->AdminModel->get_comments_lite(); // Ambil data dari model
+		$data['users'] = $this->AdminModel->get_undangan_lite(); // Ambil data dari model
+		$this->load->view('admin',$data);
 	}
 
 	public function undangan()
 	{
 		$data['users'] = $this->AdminModel->get_undangan(); // Ambil data dari model
+		$data['pesan'] = $this->db->get('pesan')->row_array();
 		// Tambahkan hashed ID ke setiap user
 	    // foreach ($users as &$user) {
 	    //     $user->hashed_id = sha1(sha1($user->id));
@@ -91,4 +94,29 @@ class Admin extends CI_Controller {
 	    $this->load->model('AdminModel'); // Pastikan model sudah dimuat
 	    $this->AdminModel->delete_all_users(); 
 	}
+
+	public function simpan_pesan() {
+            $data = ['pesan' => $this->input->post('pesan')];
+            $this->AdminModel->simpan_pesan($data);
+            $this->session->set_flashdata('success', 'Pesan berhasil diperbarui!');
+            redirect(base_url('admin/undangan')); 
+    }
+
+    public function del_undangan($id) {
+        if ($this->AdminModel->del_data_undangan($id)) {
+            $this->session->set_flashdata('success', 'Data berhasil dihapus!');
+        } else {
+            $this->session->set_flashdata('error', 'Gagal menghapus data!');
+        }
+        redirect(base_url('admin/undangan'));
+    }
+
+    public function del_rsvp($id) {
+        if ($this->AdminModel->del_data_rsvp($id)) {
+            $this->session->set_flashdata('success', 'Data berhasil dihapus!');
+        } else {
+            $this->session->set_flashdata('error', 'Gagal menghapus data!');
+        }
+        redirect(base_url('admin/doa_kehadiran'));
+    }
 }

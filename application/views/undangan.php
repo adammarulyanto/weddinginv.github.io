@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Tables</title>
+    <title>Y&W - Undangan</title>
 
     <!-- Custom fonts for this template -->
     <link href="<?=base_url()?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -53,6 +53,19 @@
                     <h1 class="h3 mb-2 text-gray-800">List Undangan</h1>
                     <p class="mb-4">Kalo mau ubah datanya, ke link ini <a target="_blank"
                             href="https://docs.google.com/spreadsheets/d/1qwhMRrixcXCFhM1_E1GLvk6KbCUtSX1tDcZOlUylh8M/edit?gid=0#gid=0">Template Data</a>, terus download as Excel, baru klik tombol dibawah Change Data.</p>
+                    
+                    <a href="#" class="btn btn-warning btn-icon-split mb-4" data-bs-toggle="modal" data-bs-target="#pesanModal">
+                        <span class="icon text-white-50">
+                            <i class="fa fa-edit"></i>
+                        </span>
+                        <span class="text">Ubah Pesan</span>
+                    </a>
+                    <a target="_blank" href="https://docs.google.com/spreadsheets/d/1qwhMRrixcXCFhM1_E1GLvk6KbCUtSX1tDcZOlUylh8M/edit?gid=0#gid=0" class="btn btn-dark btn-icon-split mb-4">
+                        <span class="icon text-white-50">
+                            <i class="fa fa-file-excel"></i>
+                        </span>
+                        <span class="text">Template</span>
+                    </a>
                     <a href="#" class="btn btn-success btn-icon-split mb-4" data-bs-toggle="modal" data-bs-target="#uploadModal">
                         <span class="icon text-white-50">
                             <i class="fa fa-file-excel"></i>
@@ -85,6 +98,31 @@
                         </div>
                     </div>
 
+                    <!-- Modal ubah pesan -->
+                    <?php if($this->session->flashdata('success')): ?>
+                        <div class="alert alert-success"><?= $this->session->flashdata('success'); ?></div>
+                    <?php endif; ?>
+                    <?php if($this->session->flashdata('error')): ?>
+                        <div class="alert alert-danger"><?= $this->session->flashdata('error'); ?></div>
+                    <?php endif; ?>
+                    <div class="modal fade" id="pesanModal" tabindex="-1" aria-labelledby="pesanModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="pesanModalLabel">Ubah Pesan</h5>
+                                    <button type="button" class="btn btn-danger btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="<?= base_url('admin/simpan_pesan') ?>" method="POST">
+                                        <textarea style="height: 70vh; margin-bottom: 20px;" type="textarea" name="pesan" class="form-control" required><?= isset($pesan['pesan']) ? $pesan['pesan'] : '' ?></textarea>
+                                        <button type="submit" class="btn btn-success">Simpan</button>
+                                    </form>
+                                    <div id="result"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-body">
@@ -95,50 +133,39 @@
                                             <th>Name</th>
                                             <th>Whatsapp</th>
                                             <th>Instagram</th>
-                                            <th>Created At</th>
-                                            <th>Created At</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Whatsapp</th>
-                                            <th>Instagram</th>
-                                            <th>Created At</th>
+                                            <!-- <th>Created At</th> -->
                                             <th>Action</th>
                                         </tr>
-                                    </tfoot>
+                                    </thead>
                                     <tbody>
-                                        <?php foreach ($users as $user) : 
+                                        <?php 
+                                        $pesan_db = $this->db->get_where('pesan', ['id' => 1])->row_array();
+                                        $isi_pesan = $pesan_db ? $pesan_db['pesan'] : ''; // Pastikan tidak error jika pesan kosong
+
+                                        foreach ($users as $user) : 
                                         $nomor = $user['wa']; // Pastikan hanya angka
                                         $encoded_link = base_url()."?to=".rawurlencode($user['nama']); // Encoding untuk URL
-                                        $pesan = "Kepada Yth.\n".
-                                                 "Bapak/Ibu/Saudara/i\n".
-                                                 $user['nama']."\n".
-                                                 "di tempat\n\n".
-                                                 "Assalamu'alaikum Warahmatullahi Wabarakatuh\n\n".
-                                                 "Tanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i, untuk menghadiri acara Resepsi Pernikahan Kami\n\n".
-                                                 "Info lebih lengkap klik link dibawah ini\n".
-                                                 $encoded_link."\n\n".
-                                                 "Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan untuk hadir dan memberikan doa restu.\n\n".
-                                                 "Wassalamu'alaikum Warahmatullahi Wabarakatuh\n\n".
-                                                 "Kami yang berbahagia\n".
-                                                 "Keluarga Kedua Mempelai\n\n".
-                                                 "Mohon maaf perihal undangan hanya dibagikan melalui pesan ini.";
+                                        $pesan = str_replace(['##UNDANGAN##', '##LINK##'], [$user['nama'], $encoded_link], $isi_pesan);
                                         $wa_link = "https://wa.me/{$nomor}?text=" . urlencode($pesan);
                                         ?>   
                                         <tr>
                                             <td><a href="<?=base_url('?to='.urlencode($user['nama']))?>"><?= $user['nama']; ?></a></td>
                                             <td><?= $user['wa']; ?></td>
                                             <td><?= $user['ig']; ?></td>
-                                            <td><?= $user['created_at']; ?></td>
-                                            <td><a target="_blank" href="https://www.instagram.com/<?=$user['ig']?>" class="btn btn-primary btn-circle">
+                                            <!-- <td><?= $user['created_at']; ?></td> -->
+                                            <td>
+                                                <button class="copy-btn btn btn-secondary btn-circle" data-text="<?= htmlspecialchars($pesan, ENT_QUOTES, 'UTF-8') ?>">
+                                                    <i class="fas fa-copy"></i>
+                                                </button>
+                                                <a target="_blank" href="https://www.instagram.com/<?=$user['ig']?>" class="btn btn-primary btn-circle">
                                                     <i class="fab fa-instagram"></i>
                                                 </a>
                                                 <a target="_blank" href="<?= $wa_link ?>" class="btn btn-success btn-circle">
                                                     <i class="fab fa-whatsapp"></i>
                                                 </a>
-                                                <a href="#" class="btn btn-danger btn-circle">
+                                                <a href="<?= base_url('admin/del_undangan/' . $user['id']); ?>" 
+                                                   class="btn btn-danger btn-circle" 
+                                                   onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">
                                                     <i class="fas fa-trash"></i>
                                                 </a>
                                             </td>
@@ -209,6 +236,21 @@
             });
         });
     </script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll(".copy-btn").forEach(button => {
+            button.addEventListener("click", function() {
+                let textToCopy = this.getAttribute("data-text");
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    alert("Pesan berhasil disalin!");
+                }).catch(err => {
+                    console.error("Gagal menyalin teks: ", err);
+                });
+            });
+        });
+    });
+</script>
 
     <!-- Bootstrap core JavaScript-->
     <script src="<?=base_url()?>vendor/jquery/jquery.min.js"></script>

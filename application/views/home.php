@@ -101,13 +101,13 @@
         		<div class="yudha-section" id="yudha">
 		        	<div class="yudha"><p>Yudha</p></div>
 		        	<div class="pratama"><p>Pratama</p></div>
-		        	<div class="putra" id="putra"><p>Putra Pertama dari Bapaknya Yudha dan Ibunya Yudha</p></div>
+		        	<div class="putra" id="putra"><p>Putra Pertama dari Bapak Cecep Cupriadi dan Ibu Iis Ratna Sari</p></div>
 		        	<div class="groom" id="groom"><p>Groom</p></div>
         		</div>
 	        	<div class="widdy-section" id="widdy">
 		        	<div class="widdy" id="w_nama"><p>Widdy</p></div>
 		        	<div class="clhaudya" id="w_nama"><p>Clhaudya R.</p></div>
-		        	<div class="putri" id="putri"><p>Putri Kedua dari Bapaknya Widdy dan Ibunya Widdy</p></div>
+		        	<div class="putri" id="putri"><p>Putri ke empat dari Bapak Rustam Abdul Karim dan Ibu Hartini Mirdayanti</p></div>
 	        		<div class="bride" id="bride"><p>Bride</p></div>
 	        	</div>
 	        </div>
@@ -143,18 +143,18 @@
                     <div class="akad col-6" data-aos="zoom-in" data-aos-duration="1000">
                         <img src="<?=base_url()?>assets/img/rings.png">
                         <h4><strong>Akad</strong></h4>
-                        <h1>09:00</h1>
+                        <h1>10:00</h1>
                         <h5>s/d Selesai</h5>
                     </div>
                     <div class="resepsi col-6" data-aos="zoom-in" data-aos-duration="1200">
                         <img src="<?=base_url()?>assets/img/arch.png">
                         <h4><strong>Resepsi</strong></h4>
-                        <h1>10:00</h1>
+                        <h1>13:00</h1>
                         <h5>s/d Selesai</h5>
                     </div>
                     <div class="alamat col-12" data-aos="zoom-in" data-aos-duration="1300">
-                        <p>Jl. Rumahnya widdy kayanya, daerah jombang, 
-Tangerang Selatan</p>
+                        <p> Lapangan bulu tangkis, Jalan Betawi No.155, RT.3/RW.9, Kp Gunung Kalimati, Jombang, Ciputat, Kota Tangerang Selatan, Kota Tangerang Selatan, Ciputat, Banten, 15414
+</p>
 <br>
                         <a class="btn-buka-sayang" href="https://maps.app.goo.gl/1ngW2q2tyRhXmPrC7">Open Maps</a>
                     </div>
@@ -175,16 +175,16 @@ Tangerang Selatan</p>
             </div>
             <div class="row gallery">
                 <div class="col-12" data-aos="zoom-in" data-aos-duration="1500">
-                    <img src="<?=base_url('assets/img/gallery/gal2.png')?>" class="img-thumbnail-yw head" onclick="openModal(this)">
+                    <img src="<?=base_url('assets/img/gallery/1.jpg')?>" class="img-thumbnail-yw head" onclick="openModal(this)">
                 </div>
                 <div class="col-6" data-aos="zoom-in" data-aos-duration="1500">
-                    <img src="<?=base_url('assets/img/gallery/gal5.png')?>" class="img-thumbnail-yw" onclick="openModal(this)">
+                    <img src="<?=base_url('assets/img/gallery/3.jpg')?>" class="img-thumbnail-yw" onclick="openModal(this)">
                 </div>
                 <div class="col-6" data-aos="zoom-in" data-aos-duration="1500">
-                    <img src="<?=base_url('assets/img/gallery/gal6.png')?>" class="img-thumbnail-yw" onclick="openModal(this)">
+                    <img src="<?=base_url('assets/img/gallery/4.jpg')?>" class="img-thumbnail-yw" onclick="openModal(this)">
                 </div>
                 <div class="col-12" data-aos="zoom-in" data-aos-duration="1500">
-                    <img src="<?=base_url('assets/img/gallery/gal4.png')?>" class="img-thumbnail-yw head" onclick="openModal(this)">
+                    <img src="<?=base_url('assets/img/gallery/2.jpg')?>" class="img-thumbnail-yw head" onclick="openModal(this)">
                 </div>
             </div>
         </div>
@@ -306,22 +306,22 @@ Tangerang Selatan</p>
                                             <img src="https://i0.wp.com/americassbdc.org/wp-content/uploads/2021/05/Visa-logo-white.png?fit=900%2C291&ssl=1" alt="Bank Logo" class="bank-logo">
                                             <div class="bank-name"><img src="https://www.bca.co.id/-/media/Files/2023/bangga-lokal/web/images/logo-bca-white.svg" class="bank-logo2"></div>
                                             <div class="copy-container">
-                                                <div class="card-number">5435051267</div>
-                                                <input type="hidden" id="textToCopy" value="5435051267">
+                                                <div class="card-number">0670121071</div>
+                                                <input type="hidden" id="textToCopy" value="0670121071">
                                                 <button id="copyButton" onclick="copyToClipboard(this)"><i class="fa-regular fa-copy"></i></button>
                                             </div>
-                                            <div class="card-holder">ADAM MARULYANTO</div>
+                                            <div class="card-holder">YUDHA PRATAMA</div>
                                             <!-- <div class="expiry">VALID THRU 12/28</div> -->
                                         </div>
                                         <div class="debit-card">
                                             <img src="https://i0.wp.com/americassbdc.org/wp-content/uploads/2021/05/Visa-logo-white.png?fit=900%2C291&ssl=1" alt="Bank Logo" class="bank-logo">
                                             <div class="bank-name"><img src="https://www.bca.co.id/-/media/Files/2023/bangga-lokal/web/images/logo-bca-white.svg" class="bank-logo2"></div>
                                             <div class="copy-container">
-                                                <div class="card-number">54350512673</div>
-                                                <input type="hidden" id="textToCopy2" value="54350512673">
+                                                <div class="card-number">0670459608</div>
+                                                <input type="hidden" id="textToCopy2" value="0670459608">
                                                 <button id="copyButton" onclick="copyToClipboard(this)"><i class="fa-regular fa-copy"></i></button>
                                             </div>
-                                            <div class="card-holder">ADAM MARULYANTO</div>
+                                            <div class="card-holder">Widdy Clhaudya R</div>
                                             <!-- <div class="expiry">VALID THRU 12/28</div> -->
                                         </div>
                                     </div>
@@ -329,8 +329,8 @@ Tangerang Selatan</p>
                                 <hr>
                                 <div class="col-12 alamat-hadiah">
                                     <h4>Wedding Gift</h4>
-                                    <p>Jl. Rumahnya yudha atau rumah widdy, Ciputat Timur, Tangerang Selatan, 15416</p>
-                                    <a class="btn-buka-hadiah" href="https://maps.app.goo.gl/1ngW2q2tyRhXmPrC7">Buka Maps</a>
+                                    <p>Jalan Betawi No.108, RT.3/RW.9, Kp Gunung Kalimati, Jombang ( Dekat Pohon Beringin ), Ciputat, Kota Tangerang Selatan, Banten, 15411</p>
+                                    <a target="_blank" class="btn-buka-hadiah" href="https://maps.app.goo.gl/cUb2RyVsam7kr2eK9">Buka Maps</a>
                                 </div>
                             </div>
                         </div>

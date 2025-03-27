@@ -20,10 +20,42 @@ class AdminModel extends CI_Model {
         return $this->db->get('comments')->result_array(); // Ambil semua data dari tabel users
     }
 
+    public function get_undangan_lite() {
+        return $this->db->limit(10)->where("deleted_at IS NULL", NULL, FALSE)
+                    ->get('users')
+                    ->result_array();
+    }
+
+    public function get_comments_lite() {
+        return $this->db->limit(10)->get('comments')->result_array(); // Ambil semua data dari tabel users
+    }
+
     public function delete_all_users() {
         $this->db->set('deleted_at', 'CURRENT_TIMESTAMP', FALSE) // FALSE agar tidak dianggap string
                  ->where('deleted_at', NULL, FALSE)
                  ->update('users');
+    }
+    public function simpan_pesan($data) {
+        // Cek apakah data sudah ada
+        $query = $this->db->get('pesan');
+
+        if ($query->num_rows() > 0) {
+            // Jika sudah ada, update isi_pesan
+            return $this->db->update('pesan', $data);
+        } else {
+            // Jika belum ada, insert data pertama kali
+            return $this->db->insert('pesan', $data);
+        }
+    }
+
+    public function del_data_undangan($id) {
+        $this->db->where('id', $id);
+        return $this->db->delete('users'); // Ganti 'nama_tabel' dengan nama tabel aslimu
+    }
+
+    public function del_data_rsvp($id) {
+        $this->db->where('id', $id);
+        return $this->db->delete('comments'); // Ganti 'nama_tabel' dengan nama tabel aslimu
     }
 
 }
