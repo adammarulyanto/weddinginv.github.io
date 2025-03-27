@@ -58,5 +58,18 @@ class AdminModel extends CI_Model {
         return $this->db->delete('comments'); // Ganti 'nama_tabel' dengan nama tabel aslimu
     }
 
+    public function get_attendance_summary() {
+        $query = $this->db->query("
+            SELECT 
+                (SELECT COUNT(*) FROM users) AS undangan,
+                COUNT(CASE WHEN attendance = 'Hadir' THEN 1 END) AS hadir,
+                COUNT(CASE WHEN attendance = 'Tidak Hadir' THEN 1 END) AS tidak_hadir,
+                COUNT(CASE WHEN attendance = 'Belum Pasti' THEN 1 END) AS belum_pasti
+            FROM comments
+        ");
+
+        return $query->row_array(); // Mengembalikan hasil sebagai array asosiatif
+    }
+
 }
 ?>

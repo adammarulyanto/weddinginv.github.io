@@ -36,6 +36,7 @@ class Admin extends CI_Controller {
     }
 	public function index()
 	{
+		$data['summary'] = $this->AdminModel->get_attendance_summary();
 		$data['comments'] = $this->AdminModel->get_comments_lite(); // Ambil data dari model
 		$data['users'] = $this->AdminModel->get_undangan_lite(); // Ambil data dari model
 		$this->load->view('admin',$data);
