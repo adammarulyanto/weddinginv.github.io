@@ -6,6 +6,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <meta name="description" content="" />
         <meta name="author" content="" />
+        <!-- Judul yang ditampilkan -->
+        <meta property="og:title" content="Undangan Pernikahan Yudha & Widdy" />
+
+        <!-- Deskripsi yang muncul di preview -->
+        <meta property="og:description" content="Kami mengundang Anda untuk menghadiri acara pernikahan kami. Klik untuk info lebih lanjut!" />
+
+        <!-- Gambar yang akan muncul di WhatsApp -->
+        <meta property="og:image" content="<?=base_url()?>assets/img/banner.jpg" />
+
+        <!-- URL yang ditautkan -->
+        <meta property="og:url" content="<?=base_url()?>" />
+
+        <!-- Tipe konten (biasanya 'website') -->
+        <meta property="og:type" content="website" />
         <title>The Wedding of Yudha & Widdy</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
